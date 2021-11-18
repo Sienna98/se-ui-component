@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <div class="content_wrap">
+    <div class="center shadow_box">
+      <h1 class="title">Input</h1>
+      <div class="content_box">
+        <h2>default</h2>
+        <input class="input" type="text">
+      </div>
+      <div class="content_box">
+        <h2>:placeholder</h2>
+        <input class="input" type="text" placeholder="Placeholder" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Placeholder'">
+      </div>
+      <div class="content_box">
+        <h2>:disabled</h2>
+        <input class="input disabled" type="text" value="search" disabled>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
