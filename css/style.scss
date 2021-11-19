@@ -39,7 +39,6 @@ $gray05: #D9D9D9;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-  color: $black;
 }
 html, body {
 	font-size: 14px;
@@ -51,7 +50,6 @@ li {
 }
 a{
   text-decoration: none;
-  color: $black;
 }
 .wrap {
   display: flex;
@@ -128,6 +126,24 @@ a{
         }
       }
     }
+    .icon_menu {
+      .list {
+        li {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          cursor: pointer;
+          span {
+            color: $green01;
+            font-size: 2rem;
+            transition: color 0.4s;
+          }
+          &:hover span {
+            color: $green02;
+          }
+        }
+      }
+    }
   }
   .right_box{
     width:calc(100% - 230px);
@@ -191,6 +207,7 @@ a{
         right: -60px;
         animation: ball 1.2s ease-in-out;
       }
+      // cubic-bezier(0.42, 0, 0.38, 1.19);
     }
   }
   @keyframes fade {
@@ -206,10 +223,11 @@ a{
   @keyframes ball {
     0% {
       transform: translateX(600px);   
-     }
-    100% {
-      transform: translateX(0px);
     }
+    100% {
+      transform: translateX(0);
+    }
+  
   }
 
   /////////////////////////////////////////button
@@ -219,10 +237,10 @@ a{
     justify-content: center;
     align-items: center;
     .shadow_box {
-      padding: 100px 150px;
       box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.05);
     }
     .center {
+      padding: 100px 150px;
       .title {
         font-size: 1.6rem;
         font-weight: bold;
@@ -245,7 +263,7 @@ a{
           background-color: #fff;
           border: 1px solid $green02;
           border-radius: 5px;
-          transition: 0.4s;
+          transition: background-color 0.4s;
           cursor: pointer;
           &:hover {
             background-color: $green02;
@@ -293,12 +311,13 @@ a{
           border: 2px solid $gray03;
           border-radius: 5px;
           cursor: pointer;
-          transition: all 0.3s;
+          
         }
         .checkbox:checked + label {
           border-color: $green01;
           background-color: $green02;
           position: relative;
+          transition: background-color,border-color 0.3s;
           &::after {
             content: "";
             display: block;
@@ -324,6 +343,135 @@ a{
         display: flex;
         .content_box:first-child{
           padding-right: 50px;
+        }
+      }
+      ////////////////////////////////////////////////////////////////Card
+      .tab_menu{
+        display: flex;
+        padding-bottom: 20px;
+        div {
+          margin-right: 15px;
+          font-size: 1.3rem;
+          font-weight: normal;
+          color: $gray02;
+          cursor: pointer;
+          &.active {
+            color: $green01;
+            font-weight: bold;
+            border-bottom: 2px solid $green01;
+          }
+        }
+      }
+      .content_box {
+        .card {
+          width: 300px;
+          border: 1px solid $gray03;
+          border-radius: 10px;
+          overflow: hidden;
+          .card_img {
+            width: 100%;
+            overflow: hidden;
+            img {
+              width: 100%;
+              transition: transform 0.6s;
+              vertical-align:middle;
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+          .card_text {
+            padding: 20px 20px 30px 20px;
+            .card_text_title {
+              font-size: 1.2rem;
+              font-weight: bold;
+              padding-bottom: 10px;
+              color: $black;
+            }
+            .card_text_content {
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      .content_box.cont2 {
+        display: none;
+      }
+      //////////////////////////////////////////////modal
+      .modal_wrap {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.4s;
+        &.show {
+          visibility: visible;
+          opacity: 1;
+        }
+        .modal {
+          width: 50%;
+          min-width: 500px;
+          border-radius: 10px;
+          padding: 30px;
+          background-color: #fff;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -30%);
+          opacity: 0;
+          transition: opacity,transform 0.4s;
+          z-index: -1;
+          .modal_top {
+            display: flex;
+            justify-content: space-between;
+            .close {
+              font-weight: bold;
+              font-size: 2rem;
+              cursor: pointer;
+            }
+          }
+          &.fade {
+          transform: translate(-50%, -50%);
+          opacity: 1;
+          z-index: 10;
+          } 
+        }
+        ////////////////////////////////////////////////////comfirm
+        &.comfirm_wrap {
+          .modal {
+            max-width: 400px;
+            min-width: 250px;
+            .comfirm_content {
+              .btn_wrap {
+                padding: 20px 10px 0 0;
+                display: flex;
+                justify-content: flex-end;
+                span {
+                  padding: 10px 25px;
+                  margin-left: 10px;
+                  font-weight: bold;
+                  border-radius: 20px;
+                  cursor: pointer;
+                  display: inline-block;
+                  text-align: center;
+                  transition: background-color 0.3s;
+                  &.close:hover {
+                    background-color: $gray03;
+                  }
+                  &.green {
+                    color: $green01;
+                    &:hover {
+                      background-color: $green04;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
