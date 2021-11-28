@@ -1,0 +1,25 @@
+@import "color";
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.progress_wrap {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .progressbar {
+    border: 8px solid $green02;
+    border-top-color: $green03;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    animation: rotate 1s  linear infinite;
+  }
+}

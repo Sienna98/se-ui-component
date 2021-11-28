@@ -1,0 +1,64 @@
+@import "color";
+
+.select_wrap {
+  position: relative;
+  width: 150px;
+    .button {
+      width: 100%;
+      padding: 0 20px;
+      text-align: left;
+      color: $gray02;
+      border-color: $gray03;
+      transition: color,border-color 0.4s;
+      position: relative;
+      outline: none;
+      &:hover {
+        background-color: #fff;
+        color: $gray02;
+      }
+      &:focus {
+        color: $green01;
+        border-color: $green01;
+      }
+    }
+    .arrow {
+      position: relative;
+      cursor: pointer;
+      i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        font-size: 1.5rem;
+        color: $gray02;
+        &.green {
+          color: $green01;
+        }
+      }
+    }
+  .dropdown {
+    width: 100%;
+    text-align: left;
+    color: $gray02;
+    border: 1px solid $gray03;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px 0px rgba($gray01,0.1);
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    li {
+      padding: 15px 20px;
+      transition: color, background-color 0.4s;
+      cursor: pointer;
+      &:hover {
+        color: $green01;
+        background-color: $green04;
+      }
+    }
+    &.focused {
+      display: block;
+    }
+  }
+}

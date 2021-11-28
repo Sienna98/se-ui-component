@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comfirm</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <!-- <script defer src="js/main.js"></script> -->
 </head>
 <body>
   <div class="content_wrap">
@@ -32,4 +32,33 @@
     </div>
   </div>
 </body>
+<script>
+  let modal = document.querySelector('.modal')
+let back = document.getElementById("myModal");
+let _open = document.querySelector('.btn')
+let _close = document.querySelector('.close');
+
+_open.onclick = function() {
+  open();
+}
+_close.onclick = function() {
+  close();
+}
+
+
+window.onclick = function(ev) {
+  if(ev.target == back) {
+    close();
+  }
+}
+function open(){
+  modal.classList.add('fade');
+  back.classList.add('show');
+}
+function close() {
+  modal.classList.remove('fade');
+  back.classList.remove('show');
+}
+
+</script>
 </html>

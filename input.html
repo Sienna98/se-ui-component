@@ -27,4 +27,16 @@
     </div>
   </div>
 </body>
+<script>
+  const input = document.querySelectorAll(".input");
+
+input.forEach(function(ev){
+  ev.addEventListener('focus',function(ev){
+    ev.target.classList.add('focused')
+  })
+  ev.addEventListener('blur', function(ev){
+    ev.target.classList.remove('focused')
+  })
+})
+</script>
 </html>

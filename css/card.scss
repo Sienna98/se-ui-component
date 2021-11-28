@@ -1,0 +1,53 @@
+@import "color";
+
+.tab_menu{
+  display: flex;
+  padding-bottom: 20px;
+  div {
+    margin-right: 15px;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: $gray02;
+    cursor: pointer;
+    &.active {
+      color: $green01;
+      font-weight: bold;
+      border-bottom: 2px solid $green01;
+    }
+  }
+}
+.content_box {
+  .card {
+    width: 300px;
+    border: 1px solid $gray03;
+    border-radius: 10px;
+    overflow: hidden;
+    .card_img {
+      width: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        transition: transform 0.6s;
+        vertical-align:middle;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .card_text {
+      padding: 20px 20px 30px 20px;
+      .card_text_title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding-bottom: 10px;
+        color: $black;
+      }
+      .card_text_content {
+        font-weight: 400;
+      }
+    }
+  }
+}
+.content_box.cont2 {
+  display: none;
+}

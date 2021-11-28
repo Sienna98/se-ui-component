@@ -1,0 +1,18 @@
+.input {
+  width: 250px;
+  height: 45px;
+  background-color: #fff;
+  border: 1px solid #E8E8E8;
+  border-radius: 5px;
+  padding: 5px 15px;
+  outline: none;
+  transition: border 0.4s;
+}
+.input.focused {
+  border: 1px solid #58CE8F;
+}
+.input.disabled {
+  border: none;
+  color: #969696;
+  background-color: #E8E8E8;
+}/*# sourceMappingURL=input.css.map */

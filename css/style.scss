@@ -1,3 +1,15 @@
+@import "color";
+@import "landing_page";
+@import "alert";
+@import "button";
+@import "input";
+@import "checkbox";
+@import "card";
+@import "modal";
+@import "comfirm";
+@import "progress";
+@import "select";
+
 @font-face {
   font-family: 'KOTRA_BOLD-Bold';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
@@ -22,20 +34,6 @@
   font-weight: 700;
   font-style: normal;
 }
-$green01: #01B96B;
-$green02: #58CE8F;
-$green03: #A6F0C9;
-$green04: #EDFFF5;
-
-$black: #242424;
-
-$gray01: #636363;
-$gray02: #969696;
-$gray03: #E8E8E8;
-$gray04: #FBFBFB;
-$gray05: #D9D9D9;
-
-$red01: #FF5E5E;
 
 * {
 	margin: 0;
@@ -57,545 +55,132 @@ a{
   display: flex;
   width: 100%;
   height: 100vh;
-  .left_box {
-    width: 230px;
-    height: 100%;
-    box-shadow: 3px 0px 7px 0px rgb(0,0,0,0.05);
-    z-index: 1;
-    .nav_wrap {
-      border-bottom: 1px solid $gray03;
-      padding: 20px 0;
-      .inner {
-        padding: 0 20px;
-        .title {
-          font-size: 0.8rem;
-          font-weight: bold;
-          color: $green01;
-        }
-        li {
-          transition: all 0.4s;
-          cursor: pointer;
-          span {
-            font-size: 1.2rem;
-            font-weight: 400;
-            position: relative;
-            &::before {
-              content: '';
-              width: 0;
-              height: 10px;
-              background-color: $green03;
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              z-index: -1;
-              transition: width 0.4s;
-            }
-          }
-          &+li {
-             padding-top: 5px;
-          }
-          &:first-child {
-            padding-top: 10px;
-          }
-          &:hover {
-            transform: translateX(5px);
-            position: relative;
-            span {
-              font-weight: bold;
-              &::before {
-                width: 100%;
-              }
-            }
-          }
-          &.on {
-            transform: translateX(5px);
-              span {
-                font-weight: bold;
-                &::before {
-                  content: '';
-                  width: 100%;
-                  height: 10px;
-                  background-color: $green03;
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  z-index: -1;
-                  transition: width 0.4s;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .icon_menu {
-      .list {
-        li {
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          cursor: pointer;
-          span {
-            color: $green01;
-            font-size: 2rem;
-            transition: color 0.4s;
-          }
-          &:hover span {
-            color: $green02;
-          }
-        }
-      }
+  .nav_wrap {
+    border-bottom: 1px solid $gray03;
+    padding: 20px 0;
+    .inner {
+      padding: 0 20px;
     }
   }
-  .right_box{
-    width:calc(100% - 230px);
-    .cont_wrap{
-      width: 100%;
-      height: 100%;
-      iframe{
-        width: 100%;
-        height: 100%;
-      }
-    }
+}
+
+.left_box {
+  width: 230px;
+  height: 100%;
+  box-shadow: 3px 0px 7px 0px rgb(0,0,0,0.05);
+  z-index: 1;
+  .title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: $green01;
   }
-
-
-  /////////////////////////////////////////////landing_page
-  .landing_wrap {
-    position: relative;
-    height: 90vh;
-    min-width: 1000px;
-    min-height: 650px;
-    margin: 5vh;
-    overflow-x: hidden;
-    .bg_color {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      .left {
-        width: 50%;
-        height: 100%;
-        background-color: $green02;
-      }
-      .right {
-        width: 50%;
-        height: 100%;
-        background-color: $gray04;
-      }
-    }
-    h1 {
-      font-family: 'KOTRA_BOLD-Bold';
-      font-size: 12rem;
-      font-weight: bold;
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-55%,-45%);
-      line-height: 1;
-      animation: fade .8s ease-in-out;
-      -ms-user-select: none; 
-      -moz-user-select: -moz-none;
-      -khtml-user-select: none;
-      -webkit-user-select: none;
-      user-select: none;
+  li {
+    transition: all 0.4s;
+    cursor: pointer;
+    span {
+      font-size: 1.2rem;
+      font-weight: 400;
+      position: relative;
       &::before {
         content: '';
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: $green02;
+        width: 0;
+        height: 10px;
+        background-color: $green03;
         position: absolute;
-        bottom: 28px;
-        right: -60px;
-        animation: ball 1.2s ease-in-out;
-      }
-      // cubic-bezier(0.42, 0, 0.38, 1.19);
-    }
-  }
-  @keyframes fade {
-    0%{
-      opacity: 0;
-      transform: translate(-75%,-45%);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-55%,-45%);
-    }
-  }
-  @keyframes ball {
-    0% {
-      transform: translateX(600px);   
-    }
-    100% {
-      transform: translateX(0);
-    }
-  
-  }
-
-  /////////////////////////////////////////button
-  .content_wrap {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .shadow_box {
-      box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.05);
-    }
-    .center {
-      padding: 100px 150px;
-      .title {
-        font-size: 1.6rem;
-        font-weight: bold;
-        padding-bottom: 15px;
-      }
-      .content_box {
-        padding: 10px 0;
-        h2 {
-          color: $gray02;
-          font-size: 1.2rem;
-          font-weight: bold;
-          padding-bottom: 10px;
-        }
-        .button {
-          width: 140px;
-          height: 50px;
-          font-size: 1rem;
-          font-weight: 100;
-          color: $green02;
-          background-color: #fff;
-          border: 1px solid $green02;
-          border-radius: 5px;
-          transition: background-color 0.4s;
-          cursor: pointer;
-          &:hover {
-            background-color: $green02;
-            color: #fff;
-          }
-          &.disabled {
-            border: none;
-            color: $gray02;
-            background-color: $gray03;
-            cursor: unset;
-            &:hover {
-              border: none;
-              color: $gray02;
-              background-color: $gray03;
-            }
-          }
-        }
-        ///////////////////////////////////////////////////////////input
-        .input {
-          width: 250px;
-          height: 45px;
-          background-color: #fff;
-          border: 1px solid $gray03;
-          border-radius: 5px;
-          padding: 5px 15px;
-          outline: none;
-          transition: border 0.4s;
-          &.focused {
-            border: 1px solid $green02;
-          }
-          &.disabled {
-            border: none;
-            color: $gray02;
-            background-color: $gray03;
-          }
-        }
-        ////////////////////////////////////////////////////////checkbox
-        .checkbox {
-          display: none;
-        }
-        .checkbox + label{
-          display: inline-block;
-          width: 25px;
-          height: 25px;
-          border: 2px solid $gray03;
-          border-radius: 5px;
-          cursor: pointer;
-          
-        }
-        .checkbox:checked + label {
-          border-color: $green01;
-          background-color: $green02;
-          position: relative;
-          transition: background-color,border-color 0.3s;
-          &::after {
-            content: "";
-            display: block;
-            width: 6px;
-            height: 12px;
-            border: solid #fff;
-            border-width: 0 3px 3px 0;
-            transform: rotate(45deg);
-            position: absolute;
-            left: 6px;
-            top: 1px;
-          }
-        }
-        .checkbox:disabled + label {
-          border-color: $gray05;
-          background-color: $gray03;
-          &::after {
-            border-color: $gray05;
-          }
-        }
-      }
-      .flex {
-        display: flex;
-        .content_box:first-child{
-          padding-right: 50px;
-        }
-      }
-      ////////////////////////////////////////////////////////////////Card
-      .tab_menu{
-        display: flex;
-        padding-bottom: 20px;
-        div {
-          margin-right: 15px;
-          font-size: 1.3rem;
-          font-weight: normal;
-          color: $gray02;
-          cursor: pointer;
-          &.active {
-            color: $green01;
-            font-weight: bold;
-            border-bottom: 2px solid $green01;
-          }
-        }
-      }
-      .content_box {
-        .card {
-          width: 300px;
-          border: 1px solid $gray03;
-          border-radius: 10px;
-          overflow: hidden;
-          .card_img {
-            width: 100%;
-            overflow: hidden;
-            img {
-              width: 100%;
-              transition: transform 0.6s;
-              vertical-align:middle;
-              &:hover {
-                transform: scale(1.1);
-              }
-            }
-          }
-          .card_text {
-            padding: 20px 20px 30px 20px;
-            .card_text_title {
-              font-size: 1.2rem;
-              font-weight: bold;
-              padding-bottom: 10px;
-              color: $black;
-            }
-            .card_text_content {
-              font-weight: 400;
-            }
-          }
-        }
-      }
-      .content_box.cont2 {
-        display: none;
-      }
-      //////////////////////////////////////////////modal
-      .modal_wrap {
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.4);
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.4s;
-        &.show {
-          visibility: visible;
-          opacity: 1;
-        }
-        .modal {
-          width: 50%;
-          min-width: 500px;
-          border-radius: 10px;
-          padding: 30px;
-          background-color: #fff;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -30%);
-          opacity: 0;
-          transition: all 0.4s;
-          z-index: -1;
-          .modal_top {
-            display: flex;
-            justify-content: space-between;
-            .close {
-              font-weight: bold;
-              font-size: 2rem;
-              cursor: pointer;
-            }
-          }
-          &.fade {
-          transform: translate(-50%, -50%);
-          opacity: 1;
-          z-index: 10;
-          } 
-        }
-        ////////////////////////////////////////////////////comfirm
-        &.comfirm_wrap {
-          .modal {
-            max-width: 400px;
-            min-width: 250px;
-            .comfirm_content {
-              .btn_wrap {
-                padding: 20px 10px 0 0;
-                display: flex;
-                justify-content: flex-end;
-                span {
-                  padding: 10px 25px;
-                  margin-left: 10px;
-                  font-weight: bold;
-                  border-radius: 20px;
-                  cursor: pointer;
-                  display: inline-block;
-                  text-align: center;
-                  transition: background-color 0.3s;
-                  &.close:hover {
-                    background-color: $gray03;
-                  }
-                  &.green {
-                    color: $green01;
-                    &:hover {
-                      background-color: $green04;
-                    }
-                  }
-                }
-              }
-            }
-          }
+        z-index: -1;
+        transition: width 0.4s;
+      }
+    }
+    &+li {
+        padding-top: 5px;
+    }
+    &:first-child {
+      padding-top: 10px;
+    }
+    &:hover {
+      transform: translateX(5px);
+      position: relative;
+      span {
+        font-weight: bold;
+        &::before {
+          width: 100%;
         }
       }
-      //////////////////////////////////////////////////////////////////Alert 
-      .alert_wrap {
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 350px;
-        padding: 10px 20px;
-      }
-      .alert_box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 20px;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-        &.success {
-          background-color: $green01;
-        }
-        &.error {
-          background-color: $red01;
-        }
+    }
+    &.on {
+      transform: translateX(5px);
         span {
           font-weight: bold;
-          font-size: 1.5rem;
-          line-height: 1;
-          cursor: pointer;
-          padding: 5px;
-        }
-      }
-      //////////////////////////////////////////////progress
-      .content_box {
-        .progress_wrap {
-          width: 100px;
-          height: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .progressbar {
-            border: 8px solid $green02;
-            border-top-color: $green03;
-            border-radius: 100%;
-            height: 50px;
-            width: 50px;
-            animation: rotate 1s  linear infinite;
-          }
-          @keyframes rotate {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(359deg);
-            }
-          }
-        }
-        //////////////////////////////////////////////////Select
-        .select_wrap {
-          position: relative;
-          width: 150px;
-            .button {
-              width: 100%;
-              padding: 0 20px;
-              text-align: left;
-              color: $gray02;
-              border-color: $gray03;
-              transition: color,border-color 0.4s;
-              position: relative;
-              outline: none;
-              &:hover {
-                background-color: #fff;
-              }
-              &:focus {
-                color: $green01;
-                border-color: $green01;
-              }
-            }
-            .arrow {
-              position: relative;
-              cursor: pointer;
-              i {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: 10px;
-                font-size: 1.5rem;
-                color: $gray02;
-                &.green {
-                  color: $green01;
-                }
-              }
-            }
-          .dropdown {
+          &::before {
+            content: '';
             width: 100%;
-            text-align: left;
-            color: $gray02;
-            border: 1px solid $gray03;
-            border-radius: 5px;
-            box-shadow: 1px 1px 8px 0px rgba($gray01,0.1);
-            display: none;
-            background-color: #fff;
+            height: 10px;
+            background-color: $green03;
             position: absolute;
-            top: 90px;
+            bottom: 0;
             left: 0;
-            li {
-              padding: 15px 20px;
-              transition: color, background-color 0.4s;
-              cursor: pointer;
-              &:hover {
-                color: $green01;
-                background-color: $green04;
-              }
-            }
-            &.focused {
-              display: block;
-            }
+            z-index: -1;
+            transition: width 0.4s;
           }
         }
       }
     }
   }
+.icon_menu {
+  .list {
+    li {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      cursor: pointer;
+      span {
+        color: $green01;
+        font-size: 2rem;
+        transition: color 0.4s;
+      }
+      &:hover span {
+        color: $green02;
+      }
+    }
+  }
+}
+.right_box{
+  width:calc(100% - 230px);
+  .cont_wrap{
+    width: 100%;
+    height: 100%;
+    iframe{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.content_wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .shadow_box {
+    box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.05);
+  }
+  .center {
+    padding: 100px 150px;
+    .title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    .content_box {
+      padding: 10px 0;
+      h2 {
+        color: $gray02;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
   

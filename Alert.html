@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/main.js"></script>
+
 </head>
 <body>
   <div class="content_wrap">
@@ -30,4 +31,98 @@
     </div>
   </div>
 </body>
+<script>
+//   let alr_btn_1 = document.querySelector('.alr_btn_1')
+// let alr_btn_2 = document.querySelector('.alr_btn_2')
+// let alert_wrap = document.querySelector('.alert_wrap')
+// let alert_box = document.querySelectorAll('.alert_box')
+
+// alr_btn_1.addEventListener('click',function(el) {
+//  alert_wrap.append(success());
+//  remove_timeout()
+// })
+// alr_btn_2.addEventListener('click',function() {
+//  alert_wrap.append(error());
+//  remove_timeout()
+// })
+
+// function success() {
+//   const div = document.createElement("div")
+//   const p = document.createElement("p")
+//   const _span = document.createElement("span")
+
+//   div.className = "alert_box success";
+//   _span.className = "close"
+//   _span.innerHTML = "&times;"
+//   p.innerText = "Success alert 입니다."
+//   div.append(p,_span);
+  
+//   return div;
+// }
+// function error() {
+//   const div = document.createElement("div")
+//   const p = document.createElement("p")
+//   const span = document.createElement("span")
+
+//   div.className = "alert_box error";
+//   span.className = "close"
+//   span.innerText = "&times;"
+//   p.innerText = "Success alert 입니다."
+//   div.append(p,span);
+  
+//   return div;
+// }
+
+// function remove_timeout() {
+//   setTimeout(function() {
+//     while ( alert_wrap.hasChildNodes() ) {
+//       alert_wrap.removeChild( alert_wrap.firstChild ); 
+//       }
+//   }, 2500);
+// } 
+
+let alr_btn_1 = document.querySelector(".alr_btn_1");
+let alr_btn_2 = document.querySelector(".alr_btn_2");
+let alert_wrap = document.querySelector(".alert_wrap");
+let alert_box = document.querySelectorAll(".alert_box");
+
+alr_btn_1.addEventListener("click", function (el) {
+  const success_alert = createAlert("success");
+  alert_wrap.prepend(success_alert);
+});
+
+alr_btn_2.addEventListener("click", function () {
+  const error_alert = createAlert("error");
+  alert_wrap.prepend(error_alert);
+});
+
+const elements = [];
+
+function createAlert(status /* success|error */) {
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  const span = document.createElement("span");
+
+  span.className = "close";
+  span.innerHTML = "&times;";
+
+  if (status === "success") {
+    div.className = "alert_box success on";
+    p.innerText = "Success alert 입니다.";
+  } else {
+    div.className = "alert_box error on";
+    p.innerText = "Error alert 입니다.";
+  }
+
+  div.append(p, span);
+  elements.push(div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 2500);
+
+
+  return div;
+}
+</script>
 </html>

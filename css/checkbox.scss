@@ -1,0 +1,44 @@
+@import "color";
+.checkbox {
+  display: none;
+}
+.checkbox + label{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 2px solid $gray03;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+.checkbox:checked + label {
+  border-color: $green01;
+  background-color: $green02;
+  position: relative;
+  transition: background-color,border-color 0.3s;
+  &::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 6px;
+    top: 1px;
+  }
+}
+.checkbox:disabled + label {
+  border-color: $gray05;
+  background-color: $gray03;
+  &::after {
+    border-color: $gray05;
+  }
+}
+.flex {
+  display: flex;
+  .content_box:first-child{
+    padding-right: 50px;
+  }
+}

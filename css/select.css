@@ -1,0 +1,62 @@
+.select_wrap {
+  position: relative;
+  width: 150px;
+}
+.select_wrap .button {
+  width: 100%;
+  padding: 0 20px;
+  text-align: left;
+  color: #969696;
+  border-color: #E8E8E8;
+  transition: color, border-color 0.4s;
+  position: relative;
+  outline: none;
+}
+.select_wrap .button:hover {
+  background-color: #fff;
+  color: #969696;
+}
+.select_wrap .button:focus {
+  color: #01B96B;
+  border-color: #01B96B;
+}
+.select_wrap .arrow {
+  position: relative;
+  cursor: pointer;
+}
+.select_wrap .arrow i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  font-size: 1.5rem;
+  color: #969696;
+}
+.select_wrap .arrow i.green {
+  color: #01B96B;
+}
+.select_wrap .dropdown {
+  width: 100%;
+  text-align: left;
+  color: #969696;
+  border: 1px solid #E8E8E8;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px 0px rgba(99, 99, 99, 0.1);
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  top: 90px;
+  left: 0;
+}
+.select_wrap .dropdown li {
+  padding: 15px 20px;
+  transition: color, background-color 0.4s;
+  cursor: pointer;
+}
+.select_wrap .dropdown li:hover {
+  color: #01B96B;
+  background-color: #EDFFF5;
+}
+.select_wrap .dropdown.focused {
+  display: block;
+}/*# sourceMappingURL=select.css.map */

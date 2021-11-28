@@ -1,0 +1,73 @@
+.modal_wrap {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility, opacity 0.4s;
+}
+.modal_wrap.show {
+  visibility: visible;
+  opacity: 1;
+}
+.modal_wrap .modal {
+  width: 50%;
+  min-width: 500px;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  opacity: 0;
+  transition: all 0.4s;
+  z-index: -1;
+}
+.modal_wrap .modal .modal_top {
+  display: flex;
+  justify-content: space-between;
+}
+.modal_wrap .modal .modal_top .close {
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.modal_wrap .modal.fade {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 10;
+}
+
+.modal_wrap.comfirm_wrap .modal {
+  max-width: 400px;
+  min-width: 250px;
+}
+
+.comfirm_content .btn_wrap {
+  padding: 20px 10px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.comfirm_content .btn_wrap span {
+  padding: 10px 25px;
+  margin-left: 10px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.comfirm_content .btn_wrap span.close:hover {
+  background-color: #E8E8E8;
+}
+.comfirm_content .btn_wrap span.green {
+  color: #01B96B;
+}
+.comfirm_content .btn_wrap span.green:hover {
+  background-color: #EDFFF5;
+}/*# sourceMappingURL=comfirm.css.map */

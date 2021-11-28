@@ -41,4 +41,27 @@
     </div>
   </div>
 </body>
+<script>
+  let dropdown_btn = document.querySelector('.select_btn > .button')
+let arrow = document.querySelector('.arrow > i')
+  
+dropdown_btn.addEventListener('focus', function() {
+  document.querySelector('.dropdown').classList.add('focused')
+  document.querySelector('.arrow > i').classList.add('green')
+})
+dropdown_btn.addEventListener('blur', function() {
+  document.querySelector('.dropdown').classList.remove('focused')
+  document.querySelector('.arrow > i').classList.remove('green')
+})
+
+let option = document.querySelectorAll('.dropdown > li')
+
+option.forEach(function(op) {
+  op.addEventListener('click',function() {
+    const data_option = this.getAttribute('data-option');
+    console.log(op.innerText)
+  })
+
+})
+</script>
 </html>

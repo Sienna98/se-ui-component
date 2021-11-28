@@ -1,0 +1,32 @@
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.progress_wrap {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress_wrap .progressbar {
+  border: 8px solid #58CE8F;
+  border-top-color: #A6F0C9;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  -webkit-animation: rotate 1s linear infinite;
+          animation: rotate 1s linear infinite;
+}/*# sourceMappingURL=progress.css.map */

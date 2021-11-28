@@ -1,0 +1,43 @@
+.modal_wrap {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility, opacity 0.4s;
+}
+.modal_wrap.show {
+  visibility: visible;
+  opacity: 1;
+}
+.modal_wrap .modal {
+  width: 50%;
+  min-width: 500px;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  opacity: 0;
+  transition: all 0.4s;
+  z-index: -1;
+}
+.modal_wrap .modal .modal_top {
+  display: flex;
+  justify-content: space-between;
+}
+.modal_wrap .modal .modal_top .close {
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.modal_wrap .modal.fade {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 10;
+}/*# sourceMappingURL=modal.css.map */

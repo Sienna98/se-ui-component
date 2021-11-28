@@ -1,0 +1,74 @@
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+.alert_wrap {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  padding: 10px 20px;
+}
+
+.alert_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.alert_box.success {
+  background-color: #01B96B;
+}
+.alert_box.error {
+  background-color: #FF5E5E;
+}
+.alert_box span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 5px;
+}
+.alert_box.on {
+  -webkit-animation: fade 2.5s linear;
+          animation: fade 2.5s linear;
+}/*# sourceMappingURL=alert.css.map */

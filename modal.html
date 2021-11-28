@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modal</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <!-- <script defer src="js/main.js"></script> -->
 
 </head>
 <body>
@@ -42,4 +42,56 @@
     </div>
   </div>
 </body>
+<script>
+// let modal = document.querySelector('.modal')
+// let back = document.getElementById("myModal");
+// let _open = document.querySelector('.btn')
+// let _close = document.querySelector('.close');
+
+// _open.onclick = function() {
+//   open();
+// }
+// _close.onclick = function() {
+//   close();
+// }
+
+// window.onclick = function(ev) {
+//   if(ev.target == back) {
+//     close();
+//   }
+// }
+// function open(){
+//   modal.classList.add('fade');
+//   back.classList.add('show');
+// }
+// function close() {
+//   modal.classList.remove('fade');
+//   back.classList.remove('show');
+// }
+
+// document.addEventListener('mouseup', function (el) {
+//   console.log(el.target)
+//   if(el.target !== modal) {
+//     close()
+//   }
+// })
+
+window.onload = function () {
+    const button = document.querySelector("#open-modal")
+    const modal = document.querySelector(".modal")
+    const modalBackground = document.querySelector(".modal .background")
+    const modalCloseButton = document.querySelector(".modal .modal-close-button")
+    button.addEventListener("click", toggle)
+    modalBackground.addEventListener("click", toggle)
+    modalCloseButton.addEventListener("click", toggle)
+    
+    function toggle () {
+        if (modal.classList.contains("on")) {
+            modal.classList.remove("on")
+        } else {
+            modal.classList.add("on")
+        }
+    }   
+}
+</script>
 </html>

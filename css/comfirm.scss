@@ -1,0 +1,34 @@
+@import "color";
+@import "modal";
+.modal_wrap.comfirm_wrap {
+  .modal {
+    max-width: 400px;
+    min-width: 250px;
+  }
+}
+.comfirm_content {
+  .btn_wrap {
+    padding: 20px 10px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    span {
+      padding: 10px 25px;
+      margin-left: 10px;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      transition: background-color 0.3s;
+      &.close:hover {
+        background-color: $gray03;
+      }
+      &.green {
+        color: $green01;
+        &:hover {
+          background-color: $green04;
+        }
+      }
+    }
+  }
+}
