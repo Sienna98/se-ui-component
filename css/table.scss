@@ -1,0 +1,42 @@
+@import "color";
+
+.content_box.table_wrap {
+  width: 600px;
+  table {
+    width: 100%;
+    border-top: 2px solid $gray03;
+    border-bottom: 2px solid $gray03;
+    border-collapse: collapse;
+    thead {
+      color: $gray02;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+  tbody tr {
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: $gray04;
+    }
+  }
+  th {
+    border-bottom: 2px solid $gray05;
+    padding:10px;
+    position: relative;
+    &::after {
+    content: '\f107';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    }
+  }
+  td {
+    border-bottom: 1px solid $gray03;
+    padding:10px;
+  }
+}

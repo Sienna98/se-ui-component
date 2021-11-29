@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <script defer src="js/main.js"></script> -->
+</head>
+<body>
+  <div class="content_wrap">
+    <div class="center shadow_box">
+      <h1 class="title">Table</h1>
+      <div class="content_box table_wrap">
+        <table>
+          <colgroup>
+            <col width="20%">
+            <col width="15%">
+            <col width="15%">
+            <col width="50%">
+        </colgroup>
+          <thead>
+            <tr>
+              <th class="top_line">이름</th>
+              <th class="top_line">성별</th>
+              <th class="top_line">나이</th>
+              <th class="top_line">주소</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>홍길동</td>
+              <td>남</td>
+              <td>23세</td>
+              <td>서울시 강남구 ㅇㅇㅇ ㅇㅇㅇㅇ 320</td>
+            </tr>
+            <tr>
+              <td>임꺽정</td>
+              <td>남</td>
+              <td>32세</td>
+              <td>서울시 강남구 ㅇㅇㅇ ㅇㅇㅇㅇ 320</td>
+            </tr>
+            <tr>
+              <td>유관순</td>
+              <td>여</td>
+              <td>18세</td>
+              <td>서울시 강남구 ㅇㅇㅇ ㅇㅇㅇㅇ 320</td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const input = document.querySelectorAll(".input");
+
+input.forEach(function(ev){
+  ev.addEventListener('focus',function(ev){
+    ev.target.classList.add('focused')
+  })
+  ev.addEventListener('blur', function(ev){
+    ev.target.classList.remove('focused')
+  })
+})
+</script>
+</html>

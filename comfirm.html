@@ -16,6 +16,7 @@
         <button class="button btn">OPEN</button>
       </div>
       <div class="modal_wrap comfirm_wrap" id="myModal">
+        <div class="background"></div>
         <div class="modal">
           <div class="modal_top">
             <h2 class="title">Title</h2>
@@ -33,32 +34,26 @@
   </div>
 </body>
 <script>
-  let modal = document.querySelector('.modal')
-let back = document.getElementById("myModal");
-let _open = document.querySelector('.btn')
-let _close = document.querySelector('.close');
-
-_open.onclick = function() {
-  open();
+window.onload = function () {
+    const button = document.querySelector(".button")
+    const modal = document.querySelector(".modal")
+    const modalBox = document.querySelector("#myModal")
+    const modalBackground = document.querySelector(".background")
+    const modalCloseButton = document.querySelector(".close")
+    
+    button.addEventListener("click", toggle)
+    modalBackground.addEventListener("click", toggle)
+    modalCloseButton.addEventListener("click", toggle)
+    
+    function toggle () {
+        if (modal.classList.contains("on")) {
+            modal.classList.remove("on")
+            modalBox.classList.remove("on")
+        } else {
+            modal.classList.add("on")
+            modalBox.classList.add("on")
+        }
+    }   
 }
-_close.onclick = function() {
-  close();
-}
-
-
-window.onclick = function(ev) {
-  if(ev.target == back) {
-    close();
-  }
-}
-function open(){
-  modal.classList.add('fade');
-  back.classList.add('show');
-}
-function close() {
-  modal.classList.remove('fade');
-  back.classList.remove('show');
-}
-
 </script>
 </html>

@@ -9,6 +9,7 @@
 @import "comfirm";
 @import "progress";
 @import "select";
+@import "table";
 
 @font-face {
   font-family: 'KOTRA_BOLD-Bold';
@@ -74,7 +75,8 @@ a{
     font-weight: bold;
     color: $green01;
   }
-  li {
+  .inner {
+    li {
     transition: all 0.4s;
     cursor: pointer;
     span {
@@ -127,6 +129,7 @@ a{
         }
       }
     }
+  }
   }
 .icon_menu {
   .list {

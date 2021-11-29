@@ -1,5 +1,5 @@
 @import "color";
-@keyframes fade {
+@keyframes text {
   0%{
     opacity: 0;
     transform: translate(-75%,-45%);
@@ -49,7 +49,7 @@
     left: 50%;
     transform: translate(-55%,-45%);
     line-height: 1;
-    animation: fade .8s ease-in-out;
+    animation: text .8s ease-in-out;
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -69,3 +69,4 @@
     // cubic-bezier(0.42, 0, 0.38, 1.19);
   }
 }
+

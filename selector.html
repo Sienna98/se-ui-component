@@ -7,7 +7,7 @@
   <title>Selector</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <!-- <script defer src="js/main.js"></script> -->
 
 </head>
 <body>
@@ -22,46 +22,49 @@
             <span class="arrow"><i class="fa fa-angle-down"></i></span>
           </div>
           <ul class="dropdown">
-            <li data-option="1" class="option">Apple</li>
+            <li class="option">Apple</li>
             <li class="option">Banana</li>
             <li class="option">Pineapple</li>
           </ul>
         </div>
-
-        <!-- <div class="selectBox2 ">
-          <button class="label">fruits 🍊</button>
-          <ul class="optionList">
-            <li class="optionItem">apple</li>
-            <li class="optionItem">orange</li>
-            <li class="optionItem">grape</li>
-            <li class="optionItem">melon</li>
-          </ul>
-        </div> -->
       </div>
     </div>
   </div>
 </body>
 <script>
-  let dropdown_btn = document.querySelector('.select_btn > .button')
+let dropdown_btn = document.querySelector('.select_btn > .button')
 let arrow = document.querySelector('.arrow > i')
-  
+let option = document.querySelectorAll('.option')  
+let dropDown = document.querySelector('.dropdown')
+
+console.log(option.innerText)
+// dropdown_btn.onclick = focus();
+
+dropdown_btn.addEventListener('focus', focus)
 dropdown_btn.addEventListener('focus', function() {
-  document.querySelector('.dropdown').classList.add('focused')
-  document.querySelector('.arrow > i').classList.add('green')
+  dropDown.classList.add('focused')
+  arrow.classList.add('green')
 })
 dropdown_btn.addEventListener('blur', function() {
-  document.querySelector('.dropdown').classList.remove('focused')
-  document.querySelector('.arrow > i').classList.remove('green')
+  dropDown.classList.remove('focused')
+  arrow.classList.remove('green')
 })
 
-let option = document.querySelectorAll('.dropdown > li')
-
-option.forEach(function(op) {
-  op.addEventListener('click',function() {
-    const data_option = this.getAttribute('data-option');
-    console.log(op.innerText)
-  })
-
+option.forEach(function(ev) {
+  ev.addEventListener('click', valueChange)
 })
+function valueChange() {
+  option.innerText.append(dropdown_btn.value)
+}
+
+function focus(el) {
+  if(el.target.hasFocus()) {
+    dropDown.classList.add("on")
+    arrow.classList.add("on")
+  } else {
+    dropDown.classList.remove("on")
+    arrow.classList.remove("on")
+  }
+}
 </script>
 </html>
