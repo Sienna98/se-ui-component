@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selector</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <!-- <script defer src="js/main.js"></script> -->
 
@@ -18,14 +18,14 @@
         <div class="select_wrap">
           <h2>default</h2>
           <div class="select_btn">
-            <input type="button" value="dropbox" class="button" readonly>
+            <input type="text" value="dropbox" class="button" readonly>
             <span class="arrow"><i class="fa fa-angle-down"></i></span>
+              <ul class="dropdown">
+                <li class="option 1">Apple</li>
+                <li class="option 2">Banana</li>
+                <li class="option 3">Pineapple</li>
+              </ul>
           </div>
-          <ul class="dropdown">
-            <li class="option">Apple</li>
-            <li class="option">Banana</li>
-            <li class="option">Pineapple</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -37,34 +37,20 @@ let arrow = document.querySelector('.arrow > i')
 let option = document.querySelectorAll('.option')  
 let dropDown = document.querySelector('.dropdown')
 
-console.log(option.innerText)
-// dropdown_btn.onclick = focus();
-
-dropdown_btn.addEventListener('focus', focus)
 dropdown_btn.addEventListener('focus', function() {
   dropDown.classList.add('focused')
   arrow.classList.add('green')
+  console.log("asd")
 })
 dropdown_btn.addEventListener('blur', function() {
   dropDown.classList.remove('focused')
   arrow.classList.remove('green')
 })
 
-option.forEach(function(ev) {
-  ev.addEventListener('click', valueChange)
-})
-function valueChange() {
-  option.innerText.append(dropdown_btn.value)
-}
-
-function focus(el) {
-  if(el.target.hasFocus()) {
-    dropDown.classList.add("on")
-    arrow.classList.add("on")
-  } else {
-    dropDown.classList.remove("on")
-    arrow.classList.remove("on")
-  }
-}
+option.forEach(function(value) {
+  value.addEventListener('click', function(event) {
+        dropdown_btn.value = event.currentTarget.textContent;
+    });
+});
 </script>
 </html>

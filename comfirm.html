@@ -40,10 +40,15 @@ window.onload = function () {
     const modalBox = document.querySelector("#myModal")
     const modalBackground = document.querySelector(".background")
     const modalCloseButton = document.querySelector(".close")
+    const comfirtmButton = document.querySelector(".green")
     
     button.addEventListener("click", toggle)
     modalBackground.addEventListener("click", toggle)
     modalCloseButton.addEventListener("click", toggle)
+    comfirtmButton.addEventListener("click", function() {
+      toggle();
+      alert("Success alert 입니다.")
+    })
     
     function toggle () {
         if (modal.classList.contains("on")) {
@@ -53,7 +58,8 @@ window.onload = function () {
             modal.classList.add("on")
             modalBox.classList.add("on")
         }
-    }   
+    } 
+
 }
 </script>
 </html>
