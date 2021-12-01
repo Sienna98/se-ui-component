@@ -37,20 +37,40 @@ let arrow = document.querySelector('.arrow > i')
 let option = document.querySelectorAll('.option')  
 let dropDown = document.querySelector('.dropdown')
 
+
+/////////////////////////////////////////////////////////////1
 dropdown_btn.addEventListener('focus', function() {
   dropDown.classList.add('focused')
   arrow.classList.add('green')
-  console.log("asd")
 })
 dropdown_btn.addEventListener('blur', function() {
-  dropDown.classList.remove('focused')
-  arrow.classList.remove('green')
+  
 })
 
 option.forEach(function(value) {
   value.addEventListener('click', function(event) {
-        dropdown_btn.value = event.currentTarget.textContent;
+    dropdown_btn.value = event.currentTarget.textContent;
+    dropDown.classList.remove('focused')
+    arrow.classList.remove('green')
     });
 });
+
+
+/////////////////////////////////////////////////////////////2
+// dropdown_btn.addEventListener("click", toggle)
+// function toggle () {
+//         if (dropDown.classList.contains("focused")) {
+//           option.forEach(function(value) {
+//             value.addEventListener('click', function(event) {
+//               dropdown_btn.value = event.currentTarget.textContent;
+//               dropDown.classList.remove('focused')
+//               arrow.classList.remove('green')
+//     });
+// });
+//         } else {
+//           dropDown.classList.add('focused')
+//           arrow.classList.add('green')
+//         }
+//     }   
 </script>
 </html>
