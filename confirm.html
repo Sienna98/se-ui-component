@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comfirm</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <script defer src="js/main.js"></script> -->
+</head>
+<body>
+  <div class="content_wrap">
+    <div class="center shadow_box">
+      <h1 class="title">Comfirm</h1>
+      <div class="content_box">
+        <button class="button btn btn1">OPEN01</button>
+        <button class="button btn btn2">OPEN02</button>
+        <button class="button btn btn3">OPEN03</button>
+      </div>
+      <div class="modal_wrap comfirm_wrap" id="myModal">
+        <div class="background"></div>
+        <div class="modal">
+          <div class="modal_top">
+            <h2 class="title confirm_title"></h2>
+          </div>
+          <div class="comfirm_content">
+            <p class="confirm_content"></p>
+            <div class="btn_wrap">
+              <span class="close">취소</span>
+              <span class="green">확인</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+window.onload = function () {
+  const modal = document.querySelector(".modal")
+  const modalBox = document.querySelector("#myModal")
+  const modalBackground = document.querySelector(".background")
+  const modalCloseButton = document.querySelector(".close")
+  const comfirtmButton = document.querySelector(".green")
+  let btn1 = document.querySelector(".btn1")
+  let btn2 = document.querySelector(".btn2")
+  let btn3 = document.querySelector(".btn3")
+  let confirmTitle = document.querySelector(".confirm_title")
+  let confirmContent = document.querySelector(".confirm_content")
+
+  btn1.addEventListener("click", function() {
+    toggle("title01", "content01")
+    // successAlert("text01")
+  })
+  btn2.addEventListener("click", function() {
+    toggle("title02", "content02")
+    // successAlert("text02")
+  })
+  btn3.addEventListener("click", function() {
+    toggle("title03", "content03")
+    // successAlert("text03")
+  })
+  modalBackground.addEventListener("click", toggle)
+  modalCloseButton.addEventListener("click", toggle)
+  comfirtmButton.addEventListener("click", function() {
+    successAlert()
+  })
+    
+  function toggle (title, content) {
+      if (modal.classList.contains("on")) {
+        modal.classList.remove("on")
+        modalBox.classList.remove("on")
+      } else {
+        modal.classList.add("on")
+        modalBox.classList.add("on")
+        confirmTitle.innerText = title
+        confirmContent.innerText = content
+      }
+  } 
+
+  function successAlert (success) {
+      alert(success)
+      modal.classList.remove("on")
+      modalBox.classList.remove("on")
+  }
+}
+</script>
+</html>

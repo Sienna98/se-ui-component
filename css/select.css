@@ -35,6 +35,9 @@
 .select_wrap .arrow i.green {
   color: #01B96B;
 }
+.select_wrap .select_btn {
+  position: relative;
+}
 .select_wrap .dropdown {
   width: 100%;
   text-align: left;
@@ -45,7 +48,7 @@
   display: none;
   background-color: #fff;
   position: absolute;
-  top: 90px;
+  top: 55px;
   left: 0;
 }
 .select_wrap .dropdown li {

@@ -173,10 +173,12 @@
   padding-bottom: 10px;
 }
 .content_box .button {
+  display: block;
   width: 140px;
   height: 50px;
   font-size: 1rem;
   font-weight: 100;
+  margin-bottom: 10px;
   color: #58CE8F;
   background-color: #fff;
   border: 1px solid #58CE8F;
@@ -521,6 +523,9 @@
 .select_wrap .arrow i.green {
   color: #01B96B;
 }
+.select_wrap .select_btn {
+  position: relative;
+}
 .select_wrap .dropdown {
   width: 100%;
   text-align: left;
@@ -531,7 +536,7 @@
   display: none;
   background-color: #fff;
   position: absolute;
-  top: 90px;
+  top: 55px;
   left: 0;
 }
 .select_wrap .dropdown li {
