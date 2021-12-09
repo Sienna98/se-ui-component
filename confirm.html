@@ -50,22 +50,31 @@ window.onload = function () {
 
   btn1.addEventListener("click", function() {
     toggle("title01", "content01")
-    // successAlert("text01")
+    alertText("text1")
   })
   btn2.addEventListener("click", function() {
     toggle("title02", "content02")
-    // successAlert("text02")
+    alertText("text2")
   })
   btn3.addEventListener("click", function() {
     toggle("title03", "content03")
-    // successAlert("text03")
+    alertText("text3")
   })
+
   modalBackground.addEventListener("click", toggle)
   modalCloseButton.addEventListener("click", toggle)
   comfirtmButton.addEventListener("click", function() {
-    successAlert()
+    alert(_text)
+    toggle()
   })
-    
+
+let _text;
+
+function alertText(txt){
+  _text = txt;
+}
+
+
   function toggle (title, content) {
       if (modal.classList.contains("on")) {
         modal.classList.remove("on")
@@ -77,12 +86,6 @@ window.onload = function () {
         confirmContent.innerText = content
       }
   } 
-
-  function successAlert (success) {
-      alert(success)
-      modal.classList.remove("on")
-      modalBox.classList.remove("on")
-  }
 }
 </script>
 </html>
