@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selector</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
   <!-- <script defer src="js/main.js"></script> -->
 
@@ -32,140 +32,88 @@
   </div>
 </body>
 <script>
-/**
-  * 흐름 순서에 따라 번호를 달아놨습니다. 번호를 따라서 흐름을 확인해보세요.
-  */
+const selectors = document.querySelectorAll(".select_btn");
 
-// class가 select_btn인 element를 전부 가졍온다.
-const selectors = document.querySelectorAll(".select_btn"); // ---01
-
-// focused class를 추가할 때 class 이름이 헷갈릴 경우를 대비하여 변수에 담아둔다.
-// 이렇게 했을 때 또 한가지 장점은 CLASSNAME.SELECTOR_FOCUS가 선언되어 있는 코드의 값을 한꺼번에 바꿀 수 있다는 점이다.
 const CLASSNAME = {
   SELECTOR_FOCUS: "focused",
 };
 
-
-// ---04
 const closure = function () {
   const state = {
-    self: null, // selector
-    dropdown: null, // selector 안에 있는 ul
-    input: null, // selector 안에 있는 input
-    toggle: false, // 열림 닫힘 스위칭
+    self: null, 
+    dropdown: null, 
+    input: null, 
+    toggle: false, 
   };
 
-  // ---07-02
   function attachEvent() {
-    // document 즉, body에 mouseup 이벤트를 걸어준다.
-    document.addEventListener("mouseup", event); // ---07-03
+    document.addEventListener("mouseup", event);
   }
 
-  // ---07-06
   function detachEvent() {
-    if (state.dropdown) { // dropdown 이 있을때
-      state.dropdown.classList.remove(CLASSNAME.SELECTOR_FOCUS); // dropdown 에서 focused class 제거
-      document.removeEventListener("mouseup", event); // document의 mouseup이벤트 제거
-      state.toggle = false; // 스위칭 초기화
+    if (state.dropdown) { 
+      state.dropdown.classList.remove(CLASSNAME.SELECTOR_FOCUS); 
+      document.removeEventListener("mouseup", event); 
+      state.toggle = false; 
     }
   }
 
-  // ---07-04
   function event() {
-
-    /**
-      * 알아두기 !
-      * select_btn 에서 mouseup 이벤트가 일어나면 attachEvent 함수가 실행됩니다.
-      * 이때 함수안에 있는 document.addEventListener("mouseup", event); 가 선언됨과 동시에 이벤트가 발생합니다.
-      * select_btn 를 누르면 document 도 동시에 눌리기 때문에 document에 등록한 mouseup 이벤트가 동시에 동작하는 겁니다.
-      * 그렇기 때문에 아래 순서와 같이 동작합니다.
-      * 
-      * * state.toggle이 없다면
-      * 1. select_btn mouseup
-      * 2. attachEvent
-      * 3. document mouseup
-      * 4. event
-      * 5. detachEvent
-      * 6. removeEvent + focused class remove
-      * 
-      * 이렇게 되면 select_btn을 눌렀을때 dropdown이 나타남과 동시에 사라지게 되는 기이한 현상이 발생 되는 겁니다.
-      * 그래서 state.toggle 로 한번 쉬는 구간을 만들어 준거죠. 그럼 state.toggle 이 있으면 어떻게 동작할까요.
-      * 
-      * * state.toggle이 있다면
-      * 1. select_btn mouseup
-      * 2. attachEvent
-      * 3. document mouseup
-      * 4. state.toggle 검사
-      * 5. 초기값은 false 기 때문에 detachEvent 는 실행하지 않고 넘어감
-      * 6. state.toggle 를 true로 전환
-      * 7. document의 mouseup 이벤트는 아직 살아 있기 때문에 한번 더 누르며 state.toggle 이 true 이므로 detachEvent 실행
-      * 8. document 이벤트 제거 및 dropdown 은 사라지고, state.toggle 은 다시 초기값인 false로 돌아간다.
-      * 
-      * 
-      * 그래서 state.toggle 을 사용하는 겁니다.
-    */
-
     if (state.toggle) {
-      detachEvent(); // ---07-05
+      detachEvent();
       return;
     }
 
     state.toggle = true;
   }
 
-  // ---08-02
   function attachItemEvent() {
-    let itemToArray = Array.from(state.dropdown.children); // HTML Collection 타입은 Array 와 다른 형태이기 때문에 Array.from 으로 배열화 시켜준다.
+    let itemToArray = Array.from(state.dropdown.children);
 
     itemToArray.forEach(function (li) {
-      li.addEventListener("click", setValue); // click 이벤트 대기
+      li.addEventListener("click", setValue);
     });
   }
 
-  // ---08-05
   function detachItemEvent() {
     let itemToArray = Array.from(state.dropdown.children);
 
     itemToArray.forEach(function (li) {
-      li.removeEventListener("click", setValue); // click 이벤트 제거
+      li.removeEventListener("click", setValue);
     });
   }
 
-  // ---08-03
   function setValue() {
     state.input.value = this.innerText;
-    detachItemEvent(); // ---08-04
+    detachItemEvent();
   }
 
-  return function (el /* el = selector */) { // ---06
-    
-    // el === state.self === select_btn
+  return function (el) { 
 
-    if (!el) return; // 혹시 el이 없으면 함수의 동작을 멈춘다.
 
-    state.self = el; // select_btn을 closure 함수 상단에 있는 state 오브젝트의 self에 el을 대입한다.
-    state.input = state.self.children[0]; // select_btn의 첫번째 자식인 input을 미리 변수에 저장해 둔다.
+    if (!el) return; 
 
-    state.self.addEventListener("mouseup", function (ev) { // select_btn에 mouseup 이벤트를 걸어준다.
-      state.dropdown = state.self.children[2]; // select_btn 의 3번째 자식인 ul.dropdown을 가져와서 마찬가지로 state의 dropdown에 저장한다.
+    state.self = el; 
+    state.input = state.self.children[0]; 
 
-      // 혹시 state.dropdown 이 ul.dropdown 이 아닌 경우에는 동작이 안되야 한다.
-      // 3번째 자식이라는건 명확하지 않기 때문에 식별자로 한번 더 확인을 해주는 과정이라고 생각하면 됨
+    state.self.addEventListener("mouseup", function (ev) {
+      state.dropdown = state.self.children[2]; 
+
       if (state.dropdown && state.dropdown.classList.contains("dropdown")) {  
-        state.dropdown.classList.add(CLASSNAME.SELECTOR_FOCUS); // focused 라는 class를 더 해줌으로써 ul를 나타나게 할 수 있다.
-
-        attachEvent(); // ---07-01
-        attachItemEvent(); // ---08-01
+        state.dropdown.classList.add(CLASSNAME.SELECTOR_FOCUS); 
+        attachEvent();
+        attachItemEvent();
       }
     });
   };
 };
-// 위에서 가져온 selectors는 배열로 되어 있기 때문에 forEach를 돌려 밑에 있는 closure 함수를 실행 후 return 된 함수를 register 변수에 저장한다.
-// register를 호출 할때는 selector를 반드시 넣어 줘야 한다. (selector 는 class='select-btn' 이다.)
-selectors.forEach(function (selector) { // ---02
-  const register = closure(); // ---03
-  register(selector); // ---05
+
+selectors.forEach(function (selector) {
+  const register = closure();
+  register(selector);
 });
+
+
 // let dropdown_btn = document.querySelector('.select_btn > .button')
 // let arrow = document.querySelector('.arrow > i')
 // let option = document.querySelectorAll('.option')  

@@ -50,15 +50,15 @@ window.onload = function () {
 
   btn1.addEventListener("click", function() {
     toggle("title01", "content01")
-    alertText("text1")
+    _text = "text1"
   })
   btn2.addEventListener("click", function() {
     toggle("title02", "content02")
-    alertText("text2")
+    _text = "text2"
   })
   btn3.addEventListener("click", function() {
     toggle("title03", "content03")
-    alertText("text3")
+    _text = "text3"
   })
 
   modalBackground.addEventListener("click", toggle)
@@ -70,9 +70,9 @@ window.onload = function () {
 
 let _text;
 
-function alertText(txt){
-  _text = txt;
-}
+// function alertText(txt){
+//   _text = txt;
+// }
 
 
   function toggle (title, content) {

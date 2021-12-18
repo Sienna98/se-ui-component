@@ -21,7 +21,6 @@
   border-color: #01B96B;
 }
 .select_wrap .arrow {
-  position: relative;
   cursor: pointer;
 }
 .select_wrap .arrow i {
