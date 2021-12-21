@@ -627,7 +627,7 @@
   margin-right: 20px;
   font-size: 1.5rem;
   box-shadow: 0px 0px 3px rgba(177, 177, 177, 0.3);
-  transition: all 0.4s;
+  transition: color 0.4s;
   cursor: pointer;
 }
 .pagination button {
@@ -640,6 +640,39 @@
 }
 .pagination button:last-child {
   margin-right: 0;
+}
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.uc_wrap h1.uc_title {
+  font-family: "GmarketSansBold";
+  font-weight: bold;
+  font-size: 8rem;
+  color: #58CE8F;
+}
+.uc_wrap hr {
+  margin: 30px 50px;
+}
+.uc_wrap h2 {
+  font-family: "GmarketSansLight";
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.uc_wrap h3 {
+  font-family: "GmarketSansLight";
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 @font-face {
