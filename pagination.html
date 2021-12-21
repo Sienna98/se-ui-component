@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,9 +14,13 @@
           <div class="center shadow_box">
             <h1 class="title">Pagination</h1>
             <div class="content_box">
-              <div class="select_wrap">
+              <div class="pagination" id="pagination01">
                 <!-- <h2>default</h2> -->
-                
+                <button class="pagination_begin"><i class="fas fa-angle-double-left"></i></button>
+                <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
+                <div class="pagination_pages"></div>
+                <button class="pagination_next"><i class="fas fa-angle-right"></i></button>
+                <button class="pagination_last"><i class="fas fa-angle-double-right"></i></button>
               </div>
             </div>
           </div>

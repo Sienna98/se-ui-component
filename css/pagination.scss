@@ -1,0 +1,33 @@
+@import "color";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  // width: 500px;
+  button, div {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray03;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    box-shadow: 0px 0px 3px rgba(177, 177, 177, 0.3);
+    transition: all 0.4s;
+    cursor: pointer;
+    }
+    button {
+      background-color: $gray04;
+      color: $gray03;
+      &.active {
+        color: $gray01;
+        background-color: #fff;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+}
