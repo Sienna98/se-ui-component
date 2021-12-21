@@ -19,6 +19,9 @@
       &:focus {
         color: $green01;
         border-color: $green01;
+        &~ span > i {
+          color: $green01;;
+        }
       }
     }
     .arrow {
@@ -30,9 +33,6 @@
         right: 10px;
         font-size: 1.5rem;
         color: $gray02;
-        &.green {
-          color: $green01;
-        }
       }
     }
   .select_btn {

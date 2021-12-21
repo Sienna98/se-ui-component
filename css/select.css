@@ -20,6 +20,9 @@
   color: #01B96B;
   border-color: #01B96B;
 }
+.select_wrap .button:focus ~ span > i {
+  color: #01B96B;
+}
 .select_wrap .arrow {
   cursor: pointer;
 }
