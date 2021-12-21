@@ -12,6 +12,11 @@
   font-style: normal;
 }
 .uc_wrap{
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   h1.uc_title {
     font-family: 'GmarketSansBold';
     font-weight: bold;
