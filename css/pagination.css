@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
 }
-.pagination button, .pagination div {
+.pagination button, .pagination ul > li {
   display: block;
   align-items: center;
   justify-content: center;
@@ -26,4 +26,16 @@
 }
 .pagination button:last-child {
   margin-right: 0;
+}
+.pagination .pagination_pages {
+  display: flex;
+}
+.pagination .pagination_pages .page {
+  text-align: center;
+  line-height: 36px;
+  font-weight: bold;
+}
+.pagination .pagination_pages .page.on {
+  background-color: #58CE8F;
+  color: #fff;
 }/*# sourceMappingURL=pagination.css.map */

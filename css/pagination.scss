@@ -5,7 +5,7 @@
   align-items: center;
   // justify-content: space-between;
   // width: 500px;
-  button, div {
+  button, ul > li {
     display: block;
     align-items: center;
     justify-content: center;
@@ -30,4 +30,16 @@
         margin-right: 0;
       }
     }
+   .pagination_pages {
+     display: flex;
+     .page {
+       text-align: center;
+       line-height: 36px;
+       font-weight: bold;
+     }
+     .page.on {
+       background-color: $green02;
+       color: #fff;
+     }
+   } 
 }
