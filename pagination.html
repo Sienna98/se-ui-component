@@ -9,26 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <body>
-        <div class="content_wrap">
-          <div class="center shadow_box">
-            <h1 class="title">Pagination</h1>
-            <div class="content_box">
-              <div class="pagination" id="pagination01">
-                <!-- <h2>default</h2> -->
-                <button class="pagination_begin"><i class="fas fa-angle-double-left"></i></button>
-                <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
-                <ul class="pagination_pages">
-                  <li class="page on">1</li>
-                  <li class="page">2</li>
-                </ul>
-                <button class="pagination_next"><i class="fas fa-angle-right"></i></button>
-                <button class="pagination_last"><i class="fas fa-angle-double-right"></i></button>
-              </div>
-            </div>
-          </div>
+  <div class="content_wrap">
+    <div class="center shadow_box">
+      <h1 class="title">Pagination</h1>
+      <div class="content_box">
+        <div class="pagination" id="pagination01">
+          <!-- <h2>default</h2> -->
+          <button class="pagination_begin"><i class="fas fa-angle-double-left"></i></button>
+          <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
+          <ul class="pagination_pages">
+            <li class="page on">1</li>
+            <li class="page">2</li>
+          </ul>
+          <button class="pagination_next"><i class="fas fa-angle-right"></i></button>
+          <button class="pagination_last"><i class="fas fa-angle-double-right"></i></button>
         </div>
-      </body>
+      </div>
+    </div>
+  </div>
 </body>
 <script>
 window.onload = function () {
@@ -38,20 +36,19 @@ window.onload = function () {
   const limit = 30
   const block = 10
 
-  page = tCount / limit
+  let pageCount = tCount / limit
+  let blockCount = pageCount / block
 
-  let blockCount = page / block
+  const pageButton = document.querySelectorAll(".pagination_pages > .page")
 
-  const pageButton = document.querySelectorAll(".pagination_pates > .page")
-
-  pageButton.forEach(function(ev){
-    ev.addEventListener('click',function(el){
-      ev.target.classList.remove('on')
-      el.target.classList.add('on')
-    })
-  })
-  console.log("jdfjdjf")
-  
+  pageButton.forEach(function (ev) {
+  ev.addEventListener("click", function (el) {
+    pageButton.forEach(function (ev) {
+      ev.classList.remove("on");
+    });
+    el.target.classList.add("on");
+  });
+});
 }
 </script>
 </html>
