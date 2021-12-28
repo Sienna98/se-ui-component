@@ -15,15 +15,15 @@
       <div class="content_box">
         <div class="pagination" id="pagination01">
           <!-- <h2>default</h2> -->
-          <button class="pagination_begin"><i class="fas fa-angle-double-left"></i></button>
+          <button class="pagination_begin active"><i class="fas fa-angle-double-left"></i></button>
           <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
           <ul class="pagination_pages">
             <li class="page on">1</li>
             <li class="page">2</li>
             <li class="page">3</li>
           </ul>
-          <button class="pagination_next"><i class="fas fa-angle-right"></i></button>
-          <button class="pagination_last"><i class="fas fa-angle-double-right"></i></button>
+          <button class="pagination_next active"><i class="fas fa-angle-right"></i></button>
+          <button class="pagination_last active"><i class="fas fa-angle-double-right"></i></button>
         </div>
       </div>
     </div>
@@ -56,32 +56,32 @@ window.onload = function () {
   const lastButton = document.querySelector(".pagination_last")
   const paginationPages = document.querySelector(".pagination_pages")
   const firstNumberButton = paginationPages.children[0]
-  const lastNumberButton = paginationPages.children[length-1]
+  const lastNumberButton = paginationPages.children[paginationPages.children.length-1]
 
   beginButton.addEventListener("click", function() {
     removeOn()
     firstNumberButton.classList.add("on")
-    console.log(firstNumberButton)
   })
-
   lastButton.addEventListener("click", function() {
     removeOn()
-    // lastNumberButton.classList.add("on")
-    console.log(lastNumberButton)
+    lastNumberButton.classList.add("on")
   })
+
   // prev, next 버튼 클릭시 전 페이지, 다음 페이지로 이동
   const prevButton = document.querySelector(".pagination_prev")
   const nextButton = document.querySelector(".pagination_next")
+  // const prevNumber = 
+  // const nextNumber = 
 
   prevButton.addEventListener("click", function() {
     removeOn()
-
+    
   })
-
   nextButton.addEventListener("click", function() {
     removeOn()
-
+    
   })
+
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
 
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
