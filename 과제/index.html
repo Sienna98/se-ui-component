@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMAGE SLIDE</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <ul class="slide_wrap">
+      <li class="slide"><img src="https://images.unsplash.com/photo-1546436836-07a91091f160?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80" alt="슬라이드이미지1"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80" alt="슬라이드이미지2"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1600712365047-26f7a4f04d44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="슬라이드이미지3"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="슬라이드이미지4"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1533371452382-d45a9da51ad9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80" alt="슬라이드이미지5"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="슬라이드이미지6"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" alt="슬라이드이미지7"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1513178065262-3722f6eeceaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="슬라이드이미지8"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="슬라이드이미지9"></li>
+      <li class="slide"><img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="슬라이드이미지10"></li>
+    </ul>
+    <div class="button_wrap">
+      <button class="prev">왼쪽으로</button>
+      <button class="next">오른쪽으로</button>
+    </div>
+  </div>
+</body>
+<script>
+  const slideWrap = document.querySelector('.slide_wrap'); // Slide parent dom
+  const slideContents = document.querySelectorAll('.slide'); // each slide dom
+  const slideBtnNext = document.querySelector('.next'); // next button
+  const slideBtnPrev = document.querySelector('.prev'); // prev button
+  const slideLength = slideContents.length; // slide length
+  slideWrap.style.width = 520 * (slideLength) + "px";
+  let curIndex = 0;
+
+  slideBtnNext.addEventListener('click', function () {
+    if (curIndex <= slideLength - 1) {
+      slideWrap.style.transition = 400 + "ms";
+      slideWrap.style.transform = "translate(-" + (520 * (curIndex + 1)) + "px)";
+    } else if(curIndex > slideLength - 1) {
+      slideWrap.style.transition = none;
+      slideWrap.style.transform = none;
+    }
+    curSlide = slideContents[++curIndex];
+  });
+  slideBtnPrev.addEventListener('click', function () {
+    if (curIndex >= 0) {
+      slideWrap.style.transition = 400 + "ms";
+      slideWrap.style.transform = "translate(-" + (520 * (curIndex)) + "px)";
+    }
+    curSlide = slideContents[--curIndex];
+  });
+</script>
+
+</html>

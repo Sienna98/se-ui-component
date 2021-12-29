@@ -1,41 +1,61 @@
 .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .pagination button, .pagination ul > li {
   display: block;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 1px solid #E8E8E8;
   border-radius: 5px;
   width: 40px;
   height: 40px;
   margin-right: 20px;
   font-size: 1.5rem;
-  box-shadow: 0px 0px 3px rgba(177, 177, 177, 0.3);
-  transition: color, background-color 0.4s;
+  -webkit-box-shadow: 0px 0px 3px rgba(177, 177, 177, 0.3);
+          box-shadow: 0px 0px 3px rgba(177, 177, 177, 0.3);
+  -webkit-transition: color,background-color 0.4s;
+  transition: color,background-color 0.4s;
   cursor: pointer;
 }
+
 .pagination button {
   background-color: #FBFBFB;
   color: #E8E8E8;
 }
+
 .pagination button.active {
   color: #636363;
   background-color: #fff;
 }
+
 .pagination button:last-child {
   margin-right: 0;
 }
+
 .pagination .pagination_pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .pagination .pagination_pages .page {
   text-align: center;
   line-height: 36px;
   font-weight: bold;
 }
+
 .pagination .pagination_pages .page.on {
   background-color: #58CE8F;
   color: #fff;
-}/*# sourceMappingURL=pagination.css.map */
+}
+/*# sourceMappingURL=pagination.css.map */
