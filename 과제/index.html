@@ -84,19 +84,28 @@
       slideWrap.style.transform = "translate(-" + 520 * (curIndex + 1) + "px)";
      curSlide = slideContents[++curIndex];
     }
+    console.log(curIndex)
   });
 
   slideBtnPrev.addEventListener("click", function () {
     const prev = curIndex
-
     if (prev >= 0) {
       slideWrap.style.transition = 400 + "ms";
       slideWrap.style.transform = "translate(-" + 520 * curIndex + "px)";
       curSlide = slideContents[--curIndex];
-
       return
     }
+    console.log(curIndex)
   });
+
+  function disabled() {
+    if (curIndex <= 0) {
+      slideBtnPrev.classList.add("disabled")
+    } else { 
+      slideBtnPrev.classList.remove("disabled")
+    }
+  }
+  disabled()
 </script>
 
 </html>

@@ -91,4 +91,8 @@ a {
   margin: 20px 10px;
   cursor: pointer;
 }
+
+.wrap .button_wrap button.disabled {
+  background-color: #999;
+}
 /*# sourceMappingURL=style.css.map */
