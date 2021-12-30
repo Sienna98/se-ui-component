@@ -74,7 +74,7 @@
   const slideContents = document.querySelectorAll(".slide"); // each slide dom
   const slideBtnNext = document.querySelector(".next"); // next button
   const slideBtnPrev = document.querySelector(".prev"); // prev button
-  const slideLength = slideContents.length; // slide length
+  const slideLength = slideContents.length + 1; // slide length
   slideWrap.style.width = 520 * slideLength + "px";
   let curIndex = 0;
 
@@ -87,7 +87,7 @@
   });
 
   slideBtnPrev.addEventListener("click", function () {
-    const prev = curIndex - 1
+    const prev = curIndex
 
     if (prev >= 0) {
       slideWrap.style.transition = 400 + "ms";
