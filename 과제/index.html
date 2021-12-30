@@ -82,7 +82,7 @@
     if (curIndex <= slideLength - 4) {
       slideWrap.style.transition = 400 + "ms";
       slideWrap.style.transform = "translate(-" + 520 * (curIndex + 1) + "px)";
-     curSlide = slideContents[++curIndex];
+      curSlide = slideContents[++curIndex];
     }
     console.log(curIndex)
   });
@@ -101,7 +101,7 @@
   function disabled() {
     if (curIndex <= 0) {
       slideBtnPrev.classList.add("disabled")
-    } else { 
+    } else {
       slideBtnPrev.classList.remove("disabled")
     }
   }
