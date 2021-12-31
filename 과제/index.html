@@ -64,7 +64,7 @@
       </li>
     </ul>
     <div class="button_wrap">
-      <button class="prev">왼쪽으로</button>
+      <button class="prev disabled">왼쪽으로</button>
       <button class="next">오른쪽으로</button>
     </div>
   </div>
@@ -85,9 +85,11 @@
       curSlide = slideContents[++curIndex];
     }
     console.log(curIndex)
+    disabled()
   });
 
   slideBtnPrev.addEventListener("click", function () {
+    console.log(curIndex)
     const prev = curIndex
     if (prev >= 0) {
       slideWrap.style.transition = 400 + "ms";
@@ -95,17 +97,21 @@
       curSlide = slideContents[--curIndex];
       return
     }
-    console.log(curIndex)
+    disabled()
   });
 
   function disabled() {
     if (curIndex <= 0) {
-      slideBtnPrev.classList.add("disabled")
-    } else {
-      slideBtnPrev.classList.remove("disabled") //확인
+      slideBtnPrev.classList.add("disabled") //0일때 안됨
+    } else if (curIndex > 0 && curIndex < slideLength - 4){
+      slideBtnPrev.classList.remove("disabled") 
+      slideBtnNext.classList.remove("disabled") 
+    } else if (curIndex <= slideLength - 4) {
+      slideBtnNext.classList.add("disabled") 
+      console.log("마지막페이지")
     }
   }
-  disabled()
+
 </script>
 
 </html>
