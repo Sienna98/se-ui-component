@@ -78,6 +78,7 @@
   slideWrap.style.width = 520 * slideLength + "px";
   let curIndex = 0;
 
+  /*
   slideBtnNext.addEventListener("click", function () {
     if (curIndex <= slideLength - 4) {
       slideWrap.style.transition = 400 + "ms";
@@ -95,9 +96,9 @@
       slideWrap.style.transition = 400 + "ms";
       slideWrap.style.transform = "translate(-" + 520 * curIndex + "px)";
       curSlide = slideContents[--curIndex];
+      disabled()
       return
     }
-    disabled()
   });
 
   function disabled() {
@@ -111,7 +112,54 @@
       console.log("마지막페이지")
     }
   }
+ */
+// 코드 수정
+slideBtnNext.addEventListener("click", function () {
+  // 계산식 수정
+  const next = curIndex + 1;
 
+  if (slideLength >= next) {
+    slideWrap.style.transition = 400 + "ms";
+    slideWrap.style.transform = "translate(-" + 520 * next + "px)";
+    curSlide = slideContents[next];
+
+    curIndex = next;
+    disabled();
+  }
+});
+
+slideBtnPrev.addEventListener("click", function () {
+  // 계산식 수정
+  const prev = curIndex - 1;
+
+  if (!(prev < 0)) {
+    slideWrap.style.transition = 400 + "ms";
+    slideWrap.style.transform = "translate(-" + 520 * prev + "px)";
+    curSlide = slideContents[prev];
+
+    curIndex = prev;
+    disabled();
+  }
+});
+
+function disabled() {
+  if (curIndex <= 0) {
+    slideBtnPrev.setAttribute("disabled", "disabled");
+    slideBtnPrev.classList.add("disabled"); 
+    return;
+  }
+
+  if (curIndex >= slideLength - 2) { // 여기도 수정
+    slideBtnNext.setAttribute("disabled", "disabled");
+    slideBtnNext.classList.add("disabled");
+    return;
+  }
+
+  slideBtnPrev.classList.remove("disabled");
+  slideBtnNext.classList.remove("disabled");
+  slideBtnPrev.removeAttribute("disabled"); // 속성추가
+  slideBtnNext.removeAttribute("disabled"); // 속성추가
+}
 </script>
 
 </html>
