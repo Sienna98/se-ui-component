@@ -31,7 +31,7 @@
 <script>
 window.onload = function () {
 
-  const tCount = 2000;
+  const tCount = 100;
   const limit = 30
   const block = 10
   let page = 1
@@ -59,7 +59,6 @@ window.onload = function () {
   const firstNumberButton = paginationPages.children[0]
   const lastNumberButton = paginationPages.children[paginationPages.children.length - 1]
 
-
   beginButton.addEventListener("click", function () {
     removeOn()
     firstNumberButton.classList.add("on")
@@ -79,6 +78,9 @@ window.onload = function () {
         ev.classList.remove("on");
       });
       el.target.classList.add("on");
+      page = el.target.innerText
+      active()
+      console.log(page)
     });
   });
 
@@ -106,13 +108,27 @@ window.onload = function () {
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
   // console.log(paginationPages.children[index])
  function active() {
-   if(paginationPages.children[0].classList.contains("on")) {
+   const pagesLength = paginationPages.children.length-1
+
+   if(page === 1) {
     beginButton.classList.remove("active")
     prevButton.classList.remove("active")
+    console.log('첫번째 페이지')
+   }
+   if(page > 1 && page < pagesLength) {
+    beginButton.classList.add("active")
+    prevButton.classList.add("active")
+    nextButton.classList.add("active")
+    lastButton.classList.add("active")
+   }
+   if (page === pagesLength) {
+    nextButton.classList.remove("active")
+    lastButton.classList.remove("active")
+    console.log('마지막 페이지')
    }
  }
- active() 
- console.log(paginationPages.children[0])
+ 
+
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
 }
