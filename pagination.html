@@ -31,7 +31,7 @@
 <script>
 window.onload = function () {
 
-  const tCount = 100;
+  const tCount = 2000;
   const limit = 30
   const block = 10
   let page = 1
@@ -58,7 +58,7 @@ window.onload = function () {
   const lastButton = document.querySelector(".pagination_last")
   const firstNumberButton = paginationPages.children[0]
   const lastNumberButton = paginationPages.children[paginationPages.children.length - 1]
-console.log(paginationPages.children)
+
 
   beginButton.addEventListener("click", function () {
     removeOn()
@@ -106,12 +106,13 @@ console.log(paginationPages.children)
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
   // console.log(paginationPages.children[index])
  function active() {
-   if(paginationPages.children === 0) {
+   if(paginationPages.children[0].classList.contains("on")) {
     beginButton.classList.remove("active")
     prevButton.classList.remove("active")
    }
  }
  active() 
+ console.log(paginationPages.children[0])
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
 }
