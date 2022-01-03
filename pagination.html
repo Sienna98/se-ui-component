@@ -80,7 +80,6 @@ window.onload = function () {
       el.target.classList.add("on");
       page = parseInt(el.target.innerText)
       active()
-      console.log(typeof page)
     });
   });
 
@@ -113,6 +112,8 @@ window.onload = function () {
    if(page === 1) {
     beginButton.classList.remove("active")
     prevButton.classList.remove("active")
+    nextButton.classList.add("active")
+    lastButton.classList.add("active")
    }
    if(page > 1 && page < pagesLength) {
     beginButton.classList.add("active")
@@ -123,9 +124,11 @@ window.onload = function () {
    if (page === pagesLength) {
     nextButton.classList.remove("active")
     lastButton.classList.remove("active")
+    beginButton.classList.add("active")
+    prevButton.classList.add("active")
    }
  }
- 
+ active()
 
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
