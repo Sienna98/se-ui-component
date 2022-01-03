@@ -78,9 +78,9 @@ window.onload = function () {
         ev.classList.remove("on");
       });
       el.target.classList.add("on");
-      page = el.target.innerText
+      page = parseInt(el.target.innerText)
       active()
-      console.log(page)
+      console.log(typeof page)
     });
   });
 
@@ -108,12 +108,11 @@ window.onload = function () {
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
   // console.log(paginationPages.children[index])
  function active() {
-   const pagesLength = paginationPages.children.length-1
+   const pagesLength = paginationPages.children.length
 
    if(page === 1) {
     beginButton.classList.remove("active")
     prevButton.classList.remove("active")
-    console.log('첫번째 페이지')
    }
    if(page > 1 && page < pagesLength) {
     beginButton.classList.add("active")
@@ -124,7 +123,6 @@ window.onload = function () {
    if (page === pagesLength) {
     nextButton.classList.remove("active")
     lastButton.classList.remove("active")
-    console.log('마지막 페이지')
    }
  }
  
