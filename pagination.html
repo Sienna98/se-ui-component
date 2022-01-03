@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagination</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="content_wrap">
     <div class="center shadow_box">
       <h1 class="title">Pagination</h1>
       <div class="content_box">
         <div class="pagination" id="pagination01">
-          <!-- <h2>default</h2> -->
           <button class="pagination_begin active"><i class="fas fa-angle-double-left"></i></button>
           <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
           <ul class="pagination_pages">
             <li class="page on">1</li>
-            <li class="page">2</li>
-            <li class="page">3</li>
           </ul>
           <button class="pagination_next active"><i class="fas fa-angle-right"></i></button>
           <button class="pagination_last active"><i class="fas fa-angle-double-right"></i></button>
@@ -39,60 +38,75 @@ window.onload = function () {
 
   let pageCount = tCount / limit
   let blockCount = pageCount / block
+  let curIndex = 0;
+
+ // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
+ const beginButton = document.querySelector(".pagination_begin")
+  const lastButton = document.querySelector(".pagination_last")
+  const paginationPages = document.querySelector(".pagination_pages")
+  const firstNumberButton = paginationPages.children[0]
+  const lastNumberButton = paginationPages.children[paginationPages.children.length - 1]
+
+  beginButton.addEventListener("click", function () {
+    removeOn()
+    firstNumberButton.classList.add("on")
+  })
+  lastButton.addEventListener("click", function () {
+    removeOn()
+    lastNumberButton.classList.add("on")
+  })
+
+  // pageCount 수 만큼 페이지 버튼 생성
+  const pageLength = Math.ceil(pageCount)
+
+  for(let i = 2; i <= pageLength; i++){
+    const textNode = document.createTextNode(i);
+    const li = document.createElement("li")
+
+    li.appendChild(textNode);
+    li.setAttribute("class","page");
+    paginationPages.appendChild(li)
+}
+
+  function removeOn() {
+    pageButton.forEach(function (ev) {
+      ev.classList.remove("on");
+    })
+  }
 
   //페이지 버튼 클릭
   const pageButton = document.querySelectorAll(".pagination_pages > .page")
 
   pageButton.forEach(function (ev) {
-  ev.addEventListener("click", function (el) {
-    pageButton.forEach(function (ev) {
-      ev.classList.remove("on");
+    ev.addEventListener("click", function (el) {
+      pageButton.forEach(function (ev) {
+        ev.classList.remove("on");
+      });
+      el.target.classList.add("on");
     });
-    el.target.classList.add("on");
   });
-});
-  // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
-  const beginButton = document.querySelector(".pagination_begin")
-  const lastButton = document.querySelector(".pagination_last")
-  const paginationPages = document.querySelector(".pagination_pages")
-  const firstNumberButton = paginationPages.children[0]
-  const lastNumberButton = paginationPages.children[paginationPages.children.length-1]
+ 
 
-  beginButton.addEventListener("click", function() {
-    removeOn()
-    firstNumberButton.classList.add("on")
-  })
-  lastButton.addEventListener("click", function() {
-    removeOn()
-    lastNumberButton.classList.add("on")
-  })
-
-  // prev, next 버튼 클릭시 전 페이지, 다음 페이지로 이동
+  // prev, next 버튼 클릭시 전 블락, 다음 블락으로 이동
   const prevButton = document.querySelector(".pagination_prev")
   const nextButton = document.querySelector(".pagination_next")
   // const prevNumber = 
   // const nextNumber = 
+  prevButton.addEventListener("click", function () {
+    removeOn()
 
-  prevButton.addEventListener("click", function() {
-    removeOn()
-    
   })
-  nextButton.addEventListener("click", function() {
+
+  nextButton.addEventListener("click", function () {
     removeOn()
-    
+
   })
 
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
 
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
-  // pageCount 수 만큼 페이지 버튼 생성
-
-  function removeOn() {
-    pageButton.forEach(function(ev){
-      ev.classList.remove("on");
-    })
-  }
 }
 </script>
+
 </html>
