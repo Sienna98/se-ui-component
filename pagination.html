@@ -38,15 +38,28 @@ window.onload = function () {
 
   let pageCount = tCount / limit
   let blockCount = pageCount / block
-  let curIndex = 0;
 
- // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
- const beginButton = document.querySelector(".pagination_begin")
-  const lastButton = document.querySelector(".pagination_last")
   const paginationPages = document.querySelector(".pagination_pages")
+
+  // pageCount 수 만큼 페이지 버튼 생성
+  const pageLength = Math.ceil(pageCount)
+
+  for (let i = 2; i <= pageLength; i++) {
+    const textNode = document.createTextNode(i);
+    const li = document.createElement("li")
+
+    li.appendChild(textNode);
+    li.setAttribute("class", "page");
+    paginationPages.appendChild(li)
+  }
+    
+  // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
+  const beginButton = document.querySelector(".pagination_begin")
+  const lastButton = document.querySelector(".pagination_last")
   const firstNumberButton = paginationPages.children[0]
   const lastNumberButton = paginationPages.children[paginationPages.children.length - 1]
-
+console.log(paginationPages.children)
+console.log(paginationPages.children)
   beginButton.addEventListener("click", function () {
     removeOn()
     firstNumberButton.classList.add("on")
@@ -56,24 +69,7 @@ window.onload = function () {
     lastNumberButton.classList.add("on")
   })
 
-  // pageCount 수 만큼 페이지 버튼 생성
-  const pageLength = Math.ceil(pageCount)
-
-  for(let i = 2; i <= pageLength; i++){
-    const textNode = document.createTextNode(i);
-    const li = document.createElement("li")
-
-    li.appendChild(textNode);
-    li.setAttribute("class","page");
-    paginationPages.appendChild(li)
-}
-
-  function removeOn() {
-    pageButton.forEach(function (ev) {
-      ev.classList.remove("on");
-    })
-  }
-
+ 
   //페이지 버튼 클릭
   const pageButton = document.querySelectorAll(".pagination_pages > .page")
 
@@ -85,7 +81,6 @@ window.onload = function () {
       el.target.classList.add("on");
     });
   });
- 
 
   // prev, next 버튼 클릭시 전 블락, 다음 블락으로 이동
   const prevButton = document.querySelector(".pagination_prev")
@@ -102,8 +97,20 @@ window.onload = function () {
 
   })
 
-  // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
+  function removeOn() {
+    pageButton.forEach(function (ev) {
+      ev.classList.remove("on");
+    })
+  }
 
+  // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
+ function active() {
+   if(paginationPages.children === 0) {
+    beginButton.classList.remove("active")
+    prevButton.classList.remove("active")
+   }
+ }
+ active() 
   // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
 }
