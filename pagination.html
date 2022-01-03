@@ -59,7 +59,7 @@ window.onload = function () {
   const firstNumberButton = paginationPages.children[0]
   const lastNumberButton = paginationPages.children[paginationPages.children.length - 1]
 console.log(paginationPages.children)
-console.log(paginationPages.children)
+
   beginButton.addEventListener("click", function () {
     removeOn()
     firstNumberButton.classList.add("on")
@@ -104,6 +104,7 @@ console.log(paginationPages.children)
   }
 
   // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
+  // console.log(paginationPages.children[index])
  function active() {
    if(paginationPages.children === 0) {
     beginButton.classList.remove("active")
