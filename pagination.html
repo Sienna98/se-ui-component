@@ -19,7 +19,6 @@
           <button class="pagination_begin active"><i class="fas fa-angle-double-left"></i></button>
           <button class="pagination_prev active"><i class="fas fa-angle-left"></i></button>
           <ul class="pagination_pages">
-            <li class="page on">1</li>
           </ul>
           <button class="pagination_next active"><i class="fas fa-angle-right"></i></button>
           <button class="pagination_last active"><i class="fas fa-angle-double-right"></i></button>
@@ -36,22 +35,26 @@ window.onload = function () {
   const block = 10
   let page = 1
 
-  let pageCount = tCount / limit
-  let blockCount = pageCount / block
+  let pageCount = Math.ceil(tCount / limit)
+  let blockCount = Math.ceil(pageCount / block)
 
   const paginationPages = document.querySelector(".pagination_pages")
 
   // pageCount 수 만큼 페이지 버튼 생성
-  const pageLength = Math.ceil(pageCount)
-
-  for (let i = 2; i <= pageLength; i++) {
+  for (let i = 1; i <= pageCount; i++) {
     const textNode = document.createTextNode(i);
     const li = document.createElement("li")
 
     li.appendChild(textNode);
-    li.setAttribute("class", "page");
+    li.classList.add("page")
     paginationPages.appendChild(li)
+
+    if (i === 1) {
+      li.classList.add("on")
+    }
   }
+  // paginationPages.firstChild.classList.add("on")
+  console.log(paginationPages.firstChild)
     
   // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
   const beginButton = document.querySelector(".pagination_begin")
@@ -62,10 +65,14 @@ window.onload = function () {
   beginButton.addEventListener("click", function () {
     removeOn()
     firstNumberButton.classList.add("on")
+    page = parseInt(1)
+    active()
   })
   lastButton.addEventListener("click", function () {
     removeOn()
     lastNumberButton.classList.add("on")
+    page = parseInt(paginationPages.children.length)
+    active()
   })
 
  
@@ -90,25 +97,25 @@ window.onload = function () {
   // const nextNumber = 
   prevButton.addEventListener("click", function () {
     removeOn()
-
+    active()
   })
 
   nextButton.addEventListener("click", function () {
     removeOn()
-
+    active()
   })
 
+  //숫자버튼 비활성화
   function removeOn() {
     pageButton.forEach(function (ev) {
       ev.classList.remove("on");
     })
   }
 
-  // 첫번째 페이지 버튼 포커싱 시, begin, prev 비활성화
-  // console.log(paginationPages.children[index])
+  // 화살표버튼 비활성화
  function active() {
    const pagesLength = paginationPages.children.length
-
+   
    if(page === 1) {
     beginButton.classList.remove("active")
     prevButton.classList.remove("active")
@@ -129,8 +136,6 @@ window.onload = function () {
    }
  }
  active()
-
-  // 마지막 페이지 버튼 포커싱 시, next, last 비활성화
 
 }
 </script>
