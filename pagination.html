@@ -32,11 +32,13 @@ window.onload = function () {
 
   const tCount = 100;
   const limit = 30
-  const block = 10
+  const limitPage = 10
+  
   let page = 1
 
+  const block = Math.ceil(page/limitPage)
   let pageCount = Math.ceil(tCount / limit)
-  let blockCount = Math.ceil(pageCount / block)
+  let blockCount = Math.ceil(pageCount / limitPage)
 
   const paginationPages = document.querySelector(".pagination_pages")
 
@@ -104,6 +106,30 @@ window.onload = function () {
     removeOn()
     active()
   })
+
+//Block
+const pages = document.querySelector(".pages")
+
+// 페이지를 생성하고 그려주는 함수
+function drawPage (i) {
+	const page = document.creteElement("li")
+	const text = (block - 1) * 10 + i + 1
+	page.innerText = text
+	pages.appendChild(page)
+}
+
+/*
+const range = block === blockCount ? ?? : ??
+// range가 있어야 하는 이유는 만약 page 가 34 개 있고, page를 10개씨만 보여주면
+// 4개가 남습니다. 이걸 처리하기 위해 조건식을 넣어주는거죠.
+// 여긴 직접 계산해보세요.
+
+*/
+
+for (let i = 0; i < range; i++) {
+	drawPage(i)
+}
+
 
   //숫자버튼 비활성화
   function removeOn() {
