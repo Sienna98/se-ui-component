@@ -30,7 +30,7 @@
 <script>
 window.onload = function () {
 
-  const tCount = 100;
+  const tCount = 1000;
   const limit = 30
   const limitPage = 10
   
@@ -43,20 +43,38 @@ window.onload = function () {
   const paginationPages = document.querySelector(".pagination_pages")
 
   // pageCount 수 만큼 페이지 버튼 생성
-  for (let i = 1; i <= pageCount; i++) {
-    const textNode = document.createTextNode(i);
-    const li = document.createElement("li")
+  // for (let i = 1; i <= pageCount; i++) {
+  //   const textNode = document.createTextNode((block - 1) * 10 + i); //i
+  //   const li = document.createElement("li")
 
-    li.appendChild(textNode);
-    li.classList.add("page")
-    paginationPages.appendChild(li)
+  //   li.appendChild(textNode);
+  //   li.classList.add("page")
+  //   paginationPages.appendChild(li)
 
-    if (i === 1) {
-      li.classList.add("on")
+  //   if (i === 1) {
+  //     li.classList.add("on")
+  //   }
+  // }
+
+  //Block
+  // 페이지를 생성하고 그려주는 함수
+  function drawPage (i) {
+    const _page = document.createElement("li")
+    const text = (block - 1) * 10 + i + 1
+    _page.innerText = text
+    _page.classList.add("page")
+    paginationPages.appendChild(_page)
+
+    if (text === 1) {
+    _page.classList.add("on")
     }
   }
-  // paginationPages.firstChild.classList.add("on")
-  console.log(paginationPages.firstChild)
+
+  const range = block === blockCount ? tCount%limitPage : limitPage
+
+  for (let i = 0; i < range; i++) {
+    drawPage(i)
+  }
     
   // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
   const beginButton = document.querySelector(".pagination_begin")
@@ -107,29 +125,7 @@ window.onload = function () {
     active()
   })
 
-//Block
-const pages = document.querySelector(".pages")
-
-// 페이지를 생성하고 그려주는 함수
-function drawPage (i) {
-	const page = document.creteElement("li")
-	const text = (block - 1) * 10 + i + 1
-	page.innerText = text
-	pages.appendChild(page)
-}
-
-/*
-const range = block === blockCount ? ?? : ??
-// range가 있어야 하는 이유는 만약 page 가 34 개 있고, page를 10개씨만 보여주면
-// 4개가 남습니다. 이걸 처리하기 위해 조건식을 넣어주는거죠.
-// 여긴 직접 계산해보세요.
-
-*/
-
-for (let i = 0; i < range; i++) {
-	drawPage(i)
-}
-
+ 
 
   //숫자버튼 비활성화
   function removeOn() {
