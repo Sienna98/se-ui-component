@@ -36,7 +36,7 @@ window.onload = function () {
   
   let page = 1
 
-  const block = Math.ceil(page/limitPage)
+  let block = Math.ceil(page/limitPage)
   let pageCount = Math.ceil(tCount / limit)
   let blockCount = Math.ceil(pageCount / limitPage)
 
@@ -64,21 +64,22 @@ window.onload = function () {
     _page.innerText = text
     _page.classList.add("page")
     paginationPages.appendChild(_page)
-
+    console.log(block)
     if (text === 1) {
     _page.classList.add("on")
     }
   }
 
-  const range = block === blockCount ? tCount%limitPage : limitPage
   nextBlock()
 
   function nextBlock() {
+    const range = block === blockCount ? tCount%limitPage : limitPage
+
     for (let i = 0; i < range; i++) {
       drawPage(i)
     }
   }
-    
+
   // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
   const beginButton = document.querySelector(".pagination_begin")
   const lastButton = document.querySelector(".pagination_last")
@@ -98,7 +99,6 @@ window.onload = function () {
     active()
   })
 
- 
   //페이지 버튼 클릭
   const pageButton = document.querySelectorAll(".pagination_pages > .page")
 
@@ -119,15 +119,20 @@ window.onload = function () {
 
   prevButton.addEventListener("click", function () {
     removeOn()
+    page = page - 10
+    let block = Math.ceil(page/limitPage)
+    console.log(block)
     nextBlock()
   })
 
   nextButton.addEventListener("click", function () {
     removeOn()
+    page = page + 10
+    let block = Math.ceil(page/limitPage)
+    console.log(page)
+    console.log(block)
     nextBlock()
   })
-
- 
 
   //숫자버튼 비활성화
   function removeOn() {
