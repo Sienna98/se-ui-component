@@ -71,9 +71,12 @@ window.onload = function () {
   }
 
   const range = block === blockCount ? tCount%limitPage : limitPage
+  nextBlock()
 
-  for (let i = 0; i < range; i++) {
-    drawPage(i)
+  function nextBlock() {
+    for (let i = 0; i < range; i++) {
+      drawPage(i)
+    }
   }
     
   // begin, last 버튼 클릭시 가장 첫번째, 가장 마지막 페이지로 이동
@@ -113,16 +116,15 @@ window.onload = function () {
   // prev, next 버튼 클릭시 전 블락, 다음 블락으로 이동
   const prevButton = document.querySelector(".pagination_prev")
   const nextButton = document.querySelector(".pagination_next")
-  // const prevNumber = 
-  // const nextNumber = 
+
   prevButton.addEventListener("click", function () {
     removeOn()
-    drawPage(1)
+    nextBlock()
   })
 
   nextButton.addEventListener("click", function () {
     removeOn()
-    drawPage(1)
+    nextBlock()
   })
 
  
