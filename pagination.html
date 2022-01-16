@@ -64,7 +64,7 @@ window.onload = function () {
     _page.innerText = text
     _page.classList.add("page")
     paginationPages.appendChild(_page)
-    console.log(block)
+
     if (text === 1) {
     _page.classList.add("on")
     }
@@ -74,6 +74,8 @@ window.onload = function () {
 
   function nextBlock() {
     const range = block === blockCount ? tCount%limitPage : limitPage
+
+    block = Math.ceil(page/limitPage)
 
     for (let i = 0; i < range; i++) {
       drawPage(i)
@@ -116,21 +118,19 @@ window.onload = function () {
   // prev, next 버튼 클릭시 전 블락, 다음 블락으로 이동
   const prevButton = document.querySelector(".pagination_prev")
   const nextButton = document.querySelector(".pagination_next")
+  const deletePage = paginationPages.childNodes
 
   prevButton.addEventListener("click", function () {
     removeOn()
+    paginationPages.remove(deletePage)
     page = page - 10
-    let block = Math.ceil(page/limitPage)
-    console.log(block)
     nextBlock()
   })
 
   nextButton.addEventListener("click", function () {
     removeOn()
+    paginationPages.remove(deletePage)
     page = page + 10
-    let block = Math.ceil(page/limitPage)
-    console.log(page)
-    console.log(block)
     nextBlock()
   })
 
