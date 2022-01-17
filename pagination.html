@@ -70,12 +70,18 @@ window.onload = function () {
     }
   }
 
-  nextBlock()
+  addList()
 
-  function nextBlock() {
-    const range = block === blockCount ? tCount%limitPage : limitPage
-
+  function nextBlock(num) {
+    removeOn()
+    paginationPages.innerHTML = ""
     block = Math.ceil(page/limitPage)
+    page = page  + num
+    addList()
+  }
+
+  function addList() {
+    const range = block === blockCount ? tCount%limitPage : limitPage
 
     for (let i = 0; i < range; i++) {
       drawPage(i)
@@ -121,17 +127,11 @@ window.onload = function () {
   const deletePage = paginationPages.childNodes
 
   prevButton.addEventListener("click", function () {
-    removeOn()
-    paginationPages.remove(deletePage)
-    page = page - 10
-    nextBlock()
+    nextBlock(-10)
   })
 
   nextButton.addEventListener("click", function () {
-    removeOn()
-    paginationPages.remove(deletePage)
-    page = page + 10
-    nextBlock()
+    nextBlock(10)
   })
 
   //숫자버튼 비활성화
