@@ -75,7 +75,7 @@
   let li = document.querySelectorAll(".list > li");
 let frame = document.getElementById("cont_frame");
 
-li.forEach(function(el){
+li.forEach(function(el){ 
   el.addEventListener('click', function() {
     const _src = this.getAttribute('data-cont');
     frame.src = _src;    
