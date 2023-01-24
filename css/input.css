@@ -6,17 +6,13 @@
   border-radius: 5px;
   padding: 5px 15px;
   outline: none;
-  -webkit-transition: border 0.4s;
   transition: border 0.4s;
 }
-
 .input.focused {
   border: 1px solid #58CE8F;
 }
-
 .input.disabled {
   border: none;
   color: #969696;
   background-color: #E8E8E8;
-}
-/*# sourceMappingURL=input.css.map */
+}/*# sourceMappingURL=input.css.map */

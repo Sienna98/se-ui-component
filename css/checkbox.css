@@ -15,10 +15,8 @@
   border-color: #01B96B;
   background-color: #58CE8F;
   position: relative;
-  -webkit-transition: background-color,border-color 0.3s;
-  transition: background-color,border-color 0.3s;
+  transition: background-color, border-color 0.3s;
 }
-
 .checkbox:checked + label::after {
   content: "";
   display: block;
@@ -26,8 +24,7 @@
   height: 12px;
   border: solid #fff;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   position: absolute;
   left: 6px;
   top: 1px;
@@ -37,18 +34,13 @@
   border-color: #D9D9D9;
   background-color: #E8E8E8;
 }
-
 .checkbox:disabled + label::after {
   border-color: #D9D9D9;
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .flex .content_box:first-child {
   padding-right: 50px;
-}
-/*# sourceMappingURL=checkbox.css.map */
+}/*# sourceMappingURL=checkbox.css.map */

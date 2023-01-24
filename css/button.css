@@ -1,14 +1,12 @@
 .content_box {
   padding: 10px 0;
 }
-
 .content_box h2 {
   color: #969696;
   font-size: 1.2rem;
   font-weight: bold;
   padding-bottom: 10px;
 }
-
 .content_box .button {
   display: block;
   width: 140px;
@@ -20,26 +18,21 @@
   background-color: #fff;
   border: 1px solid #58CE8F;
   border-radius: 5px;
-  -webkit-transition: background-color 0.4s;
   transition: background-color 0.4s;
   cursor: pointer;
 }
-
 .content_box .button:hover {
   background-color: #58CE8F;
   color: #fff;
 }
-
 .content_box .button.disabled {
   border: none;
   color: #969696;
   background-color: #E8E8E8;
   cursor: unset;
 }
-
 .content_box .button.disabled:hover {
   border: none;
   color: #969696;
   background-color: #E8E8E8;
-}
-/*# sourceMappingURL=button.css.map */
+}/*# sourceMappingURL=button.css.map */
