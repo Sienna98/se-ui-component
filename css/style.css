@@ -800,13 +800,13 @@ a {
 .left_box .inner li:hover span::before {
   width: 100%;
 }
-.left_box .inner li.on {
+.left_box .inner li.click.on {
   transform: translateX(5px);
 }
-.left_box .inner li.on span {
+.left_box .inner li.click.on span {
   font-weight: bold;
 }
-.left_box .inner li.on span::before {
+.left_box .inner li.click.on span::before {
   content: "";
   width: 100%;
   height: 10px;
