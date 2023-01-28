@@ -58,7 +58,7 @@
   background-color: #FBFBFB;
 }
 .landing_wrap h1.hello {
-  font-family: "KOTRA_BOLD-Bold";
+  font-family: "LINESeedKR-Bd";
   font-size: 12rem;
   font-weight: 500;
   color: #111;
@@ -75,6 +75,7 @@
   user-select: none;
 }
 .landing_wrap h1.hello span.bold {
+  font-family: "KOTRA_BOLD-Bold";
   font-weight: bold;
 }
 .landing_wrap h1.hello::before {

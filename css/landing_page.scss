@@ -41,7 +41,7 @@
     }
   }
   h1.hello {
-    font-family: 'KOTRA_BOLD-Bold';
+    font-family: 'LINESeedKR-Bd';
     font-size: 12rem;
     font-weight: 500;
     color: #111;
@@ -57,6 +57,7 @@
     -webkit-user-select: none;
     user-select: none;
     span.bold {
+      font-family: 'KOTRA_BOLD-Bold';
       font-weight: bold;
     }
     &::before {
