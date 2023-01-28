@@ -40,10 +40,10 @@
       background-color: $gray04;
     }
   }
-  h1 {
+  h1.hello {
     font-family: 'KOTRA_BOLD-Bold';
-    font-size: 15rem;
-    font-weight: bold;
+    font-size: 12rem;
+    font-weight: 500;
     color: #111;
     position: absolute;
     top: 50%;
@@ -56,6 +56,9 @@
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    span.bold {
+      font-weight: bold;
+    }
     &::before {
       content: '';
       width: 50px;
