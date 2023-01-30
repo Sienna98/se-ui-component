@@ -13,6 +13,7 @@
 @import "pagination";
 @import "under_construction";
 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @font-face {
   font-family: 'KOTRA_BOLD-Bold';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
@@ -43,15 +44,20 @@
   font-weight: 700;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 html, body {
+  font-family: 'Noto Sans KR', sans-serif;
 	font-size: 14px;
-  font-family: 'GmarketSan';
   background-color: #fff;
 }
 li {
@@ -68,7 +74,9 @@ a{
     border-bottom: 1px solid $gray03;
     padding: 20px 0;
     .inner {
+      font-family: 'GmarketSan', 'Pretendard-Regular';
       padding: 0 20px;
+      line-height: 20px;
     }
   }
 }
